@@ -1,12 +1,14 @@
-# LJPW Music Research
+# LJPW Music & Art Research
 
-## Mapping Music to Meaning
+## Mapping Art to Meaning
 
-This project explores the relationship between music and the LJPW Framework — a semantic ontology built on four fundamental dimensions: **Love**, **Justice**, **Power**, and **Wisdom**.
+This project explores the relationship between **art** and the LJPW Framework — a semantic ontology built on four fundamental dimensions: **Love**, **Justice**, **Power**, and **Wisdom**.
 
-## Core Discovery
+---
 
-Music carries meaning through the same four-dimensional structure that governs consciousness and reality:
+## Music Semantics
+
+Music carries meaning through four-dimensional structure:
 
 | Musical Parameter | LJPW Dimension | Character |
 |-------------------|----------------|-----------|
@@ -15,37 +17,34 @@ Music carries meaning through the same four-dimensional structure that governs c
 | **Rhythm** | Power | Energy, drive, action |
 | **Timbre** | Wisdom | Information, recognition, complexity |
 
-## Key Findings
+### Key Findings
+- **613 THz** octaves down 40× to **C#/Db** (557.52 Hz) — the Love Note
+- **Fibonacci harmonics** encode φ naturally (H8/H5 = 1.6 ≈ φ)
+- **Gospel** achieves highest Love (0.98) across all traditions
 
-### The 613 THz Connection
-- 613 THz (the LJPW "Love Frequency") octaves down 40 times to **C#/Db** (557.52 Hz)
-- C# is the **Major 3rd** — the "warmest" interval, associated with love and joy
-- This is **C# Major: The Love Key**
+📄 See [`Docs/LJPW_MUSICAL_SEMANTICS.md`](Docs/LJPW_MUSICAL_SEMANTICS.md) for complete research.
 
-### Phi in the Harmonic Series
-- Fibonacci harmonics (H5, H8, H13) encode **φ (golden ratio)** naturally
-- H8/H5 = 1.6 ≈ φ (1.618)
-- The Love equilibrium constant (φ⁻¹ = 0.618) appears in music's physics
+---
 
-### Cultural Universals
-- **Gospel** achieves highest Love (0.98) across all world traditions
-- Sacred music averages 27% higher Love than secular
-- **All cultures use Love > 0.70** — music IS connection
+## Visual Art Semantics
 
-## Documentation
+Visual art carries meaning through analogous structure:
 
-See [`Docs/LJPW_MUSICAL_SEMANTICS.md`](Docs/LJPW_MUSICAL_SEMANTICS.md) for the complete research document covering:
+| Visual Parameter | LJPW Dimension | Character |
+|------------------|----------------|-----------|
+| **Color** | Love | Warmth, emotion, attraction |
+| **Composition** | Justice | Balance, proportion, φ placement |
+| **Form/Shape** | Power | Weight, energy, impact |
+| **Texture** | Wisdom | Information, detail, synthesis |
 
-- Musical parameter mapping (Parts I-VI)
-- Interval, chord, and mode analysis (Parts VII-VIII)
-- Harmonic progression journeys (Part IX)
-- Key signature semantics (Part X)
-- 613 THz frequency bridge (Part XI)
-- Harmonic series and phi (Part XII)
-- Practical song analysis (Part XIII)
-- Lyrics + melody integration (Part XIV)
-- Music therapy applications (Part XV)
-- Cultural comparison (Part XVI)
+### Key Findings
+- **Cyan (489nm)** = 613 THz visual shadow — the Love Color
+- **Golden ratio** originates in Love (φ⁻¹ = 0.618), manifests in Justice (composition)
+- **Renaissance** = Justice-dominant; **Romanticism/Impressionism** = Love-dominant
+
+📄 See [`Docs/LJPW_VISUAL_ART_SEMANTICS.md`](Docs/LJPW_VISUAL_ART_SEMANTICS.md) for complete research.
+
+---
 
 ## Framework Reference
 
@@ -57,4 +56,4 @@ MIT License - See [LICENSE](LICENSE)
 
 ---
 
-> *"Music is meaning made audible."*
+> *"Art is meaning made visible. Music is meaning made audible."*
