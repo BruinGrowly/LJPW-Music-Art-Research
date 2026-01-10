@@ -1,0 +1,38 @@
+import { useState } from 'react'
+import './App.css'
+import Header from './components/Header'
+import TabNav from './components/TabNav'
+import ElementAnalyzer from './components/ElementAnalyzer'
+import SongProfileBuilder from './components/SongProfileBuilder'
+import GenreCompass from './components/GenreCompass'
+import LoveFrequency from './components/LoveFrequency'
+
+function App() {
+  const [activeTab, setActiveTab] = useState('analyzer')
+
+  const tabs = [
+    { id: 'analyzer', label: 'Element Analyzer', icon: '🎵' },
+    { id: 'profile', label: 'Song Profile', icon: '🎼' },
+    { id: 'compass', label: 'Genre Compass', icon: '🧭' },
+    { id: 'frequency', label: '613 THz', icon: '💜' },
+  ]
+
+  return (
+    <div className="app">
+      <Header />
+      <TabNav tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
+      <main className="main-content">
+        {activeTab === 'analyzer' && <ElementAnalyzer />}
+        {activeTab === 'profile' && <SongProfileBuilder />}
+        {activeTab === 'compass' && <GenreCompass />}
+        {activeTab === 'frequency' && <LoveFrequency />}
+      </main>
+      <footer className="footer">
+        <p>LJPW Music Measurement App - V8.2 Framework</p>
+        <p className="footer-subtitle">Measuring the meaning behind music</p>
+      </footer>
+    </div>
+  )
+}
+
+export default App

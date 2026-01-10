@@ -1,0 +1,268 @@
+.genre-compass {
+  padding: 2rem;
+}
+
+.compass-header {
+  margin-bottom: 2rem;
+}
+
+.compass-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.compass-header p {
+  color: #a0a0a0;
+  font-size: 0.95rem;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.sort-label {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+}
+
+.sort-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sort-buttons button {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #a0a0a0;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.sort-buttons button:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.sort-buttons button.active {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(108, 92, 231, 0.3));
+  color: #fff;
+  border-color: transparent;
+}
+
+.genres-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.genre-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.genre-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.genre-card.selected {
+  border-color: #6c5ce7;
+  background: rgba(108, 92, 231, 0.1);
+}
+
+.genre-rank {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 600;
+}
+
+.genre-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.genre-dominant {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.genre-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.mini-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mini-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 12px;
+}
+
+.mini-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.mini-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.genre-metrics {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.metric-label {
+  font-size: 0.7rem;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.metric-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.metric.voltage .metric-value {
+  color: #ffd93d;
+}
+
+.phase-indicator {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.genre-details {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.genre-desc {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.genre-phase-desc {
+  color: #666;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.compass-legend {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.compass-legend h3 {
+  font-size: 1rem;
+  color: #a0a0a0;
+  margin-bottom: 1rem;
+}
+
+.formula {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffd93d, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  font-family: 'SF Mono', 'Consolas', monospace;
+}
+
+.compass-legend p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.voltage-scale {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.scale-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.scale-value {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'SF Mono', 'Consolas', monospace;
+}
+
+.scale-item.high .scale-value {
+  color: #2ed573;
+}
+
+.scale-item.medium .scale-value {
+  color: #ffa502;
+}
+
+.scale-item.low .scale-value {
+  color: #666;
+}
+
+.scale-label {
+  font-size: 0.75rem;
+  color: #666;
+}
