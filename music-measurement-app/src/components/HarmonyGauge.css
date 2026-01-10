@@ -1,0 +1,88 @@
+.harmony-gauge {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 1rem 0;
+}
+
+.gauge-label {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gauge-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gauge-track {
+  flex: 1;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gauge-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease, background 0.3s ease;
+}
+
+.gauge-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.gauge-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  min-width: 80px;
+  text-align: right;
+  font-family: 'SF Mono', 'Consolas', monospace;
+}
+
+.gauge-phase {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.voltage-display {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.voltage-label {
+  font-size: 0.8rem;
+  color: #a0a0a0;
+}
+
+.voltage-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffd93d;
+  font-family: 'SF Mono', 'Consolas', monospace;
+}

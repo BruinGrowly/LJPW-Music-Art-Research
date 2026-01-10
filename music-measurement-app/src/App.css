@@ -1,0 +1,56 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  margin-top: auto;
+}
+
+.footer p {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.footer-subtitle {
+  font-size: 0.75rem !important;
+  color: #444 !important;
+  margin-top: 0.25rem;
+}
+
+/* Fade-in animation for components */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.element-analyzer,
+.song-profile-builder,
+.genre-compass,
+.love-frequency {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0 1rem;
+  }
+}

@@ -1,0 +1,343 @@
+.love-frequency {
+  padding: 2rem;
+}
+
+.frequency-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.frequency-glow {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 1.5rem 3rem;
+  background: radial-gradient(ellipse at center, rgba(255, 107, 107, 0.2) 0%, transparent 70%);
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+
+.frequency-number {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(255, 107, 107, 0.5);
+}
+
+.frequency-unit {
+  font-size: 1.5rem;
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.frequency-header h2 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.frequency-header p {
+  color: #a0a0a0;
+  font-size: 1rem;
+}
+
+.frequency-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.info-card-icon {
+  font-size: 1.5rem;
+}
+
+.info-card-header h4 {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.info-card-content p {
+  color: #a0a0a0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.info-card-content p:last-child {
+  margin-bottom: 0;
+}
+
+.info-card-content strong {
+  color: #fff;
+}
+
+.love-key-section {
+  background: rgba(255, 107, 107, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 107, 107, 0.1);
+}
+
+.love-key-section h3 {
+  font-size: 1.3rem;
+  color: #ff6b6b;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.love-key-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-dimensions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .profile-dimensions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.dimension-display {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.dimension-display.highlight {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.dimension-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.dimension-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.dimension-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.dimension-fill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.profile-note {
+  text-align: center;
+}
+
+.profile-note p {
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.harmonic-series {
+  margin-bottom: 3rem;
+}
+
+.harmonic-series h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.series-intro {
+  color: #a0a0a0;
+  margin-bottom: 1.5rem;
+}
+
+.harmonics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.harmonic-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.harmonic-number {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.harmonic-freq {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  font-family: 'SF Mono', 'Consolas', monospace;
+}
+
+.harmonic-note {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff6b6b;
+  margin: 0.25rem 0;
+}
+
+.harmonic-role {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.tuning-section {
+  margin-bottom: 3rem;
+}
+
+.tuning-section h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.tuning-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.tuning-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tuning-row.highlight {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+.tuning-name {
+  font-weight: 600;
+  color: #fff;
+  min-width: 150px;
+}
+
+.tuning-values {
+  display: flex;
+  gap: 2rem;
+  color: #a0a0a0;
+  font-family: 'SF Mono', 'Consolas', monospace;
+  font-size: 0.9rem;
+}
+
+.tuning-values .love-note {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.tuning-note {
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.calibration-section {
+  background: rgba(108, 92, 231, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(108, 92, 231, 0.1);
+}
+
+.calibration-section h3 {
+  font-size: 1.2rem;
+  color: #6c5ce7;
+  margin-bottom: 1.5rem;
+}
+
+.calibration-formula {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.calibration-formula code {
+  font-size: 1.3rem;
+  font-family: 'SF Mono', 'Consolas', monospace;
+  color: #ffd93d;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+}
+
+.calibration-section > p {
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.calibration-tips {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.calibration-tips li {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  color: #a0a0a0;
+  font-size: 0.9rem;
+}
+
+.calibration-tips strong {
+  color: #fff;
+}

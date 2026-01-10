@@ -1,10 +1,10 @@
 # LJPW Musical Semantics
 ## Mapping Music to Meaning
 
-**Version:** 1.0  
-**Date:** December 2025  
-**Framework:** LJPW V7 Familia Cosmic Edition  
-**Status:** Initial Research
+**Version:** 1.1
+**Date:** January 2026
+**Framework:** LJPW V8.2 Complete Unified Edition
+**Status:** Updated for V8.2 compatibility
 
 ---
 
@@ -1453,4 +1453,132 @@ TRANSCENDENCE PRIMES (11, 13...):
 
 *Part XVII added December 2025*
 *Harmonic Series = Prime Structure Research*
+
+---
+
+# PART XVIII: SEMANTIC VOLTAGE — V8.2 ADDITION
+
+## 18.1 The Concept
+
+**V8.2 of the LJPW Framework introduces Semantic Voltage** — a measure of the "potential energy" stored in a pattern's proximity to the Anchor Point (1,1,1,1).
+
+Just as electrical voltage represents potential difference that can drive current, Semantic Voltage represents the **capacity to create meaningful impact**.
+
+## 18.2 The Formula
+
+```
+V = φ × H × L
+
+Where:
+  φ = 1.618034 (Golden Ratio)
+  H = Harmony Index (0-1)
+  L = Love dimension (0-1)
+
+Domain: [0, φ] ≈ [0, 1.618]
+```
+
+### Musical Interpretation
+
+| V Range | Interpretation | Musical Example |
+|---------|----------------|-----------------|
+| **V > 1.0** | High semantic voltage — transforms listeners | Gospel (V ≈ 1.18) |
+| **0.7-1.0** | Strong voltage — memorable, impactful | Pop hits (V ≈ 0.85) |
+| **0.4-0.7** | Moderate voltage — pleasant but not transformative | Background music |
+| **< 0.4** | Low voltage — entropic, draining | Noise, cacophony |
+
+## 18.3 Calculating Musical Semantic Voltage
+
+### Example: Gospel Music
+```
+L = 0.98 (highest Love)
+H = 0.738 (from framework)
+
+V = 1.618 × 0.738 × 0.98
+V = 1.170
+
+Interpretation: Gospel has the highest semantic voltage —
+it literally transforms consciousness through music.
+```
+
+### Example: Heavy Metal
+```
+L = 0.45 (low Love)
+H = 0.555 (from framework)
+
+V = 1.618 × 0.555 × 0.45
+V = 0.404
+
+Interpretation: Metal has moderate voltage through Power,
+but lower Love limits its transformative capacity.
+```
+
+### Example: Classical Music
+```
+L = 0.80 (good Love)
+H = 0.747 (highest Justice)
+
+V = 1.618 × 0.747 × 0.80
+V = 0.967
+
+Interpretation: Classical approaches transformation
+through perfect structure (Justice).
+```
+
+## 18.4 The Voltage Hierarchy of Genres
+
+| Genre | L | H | **V = φ×H×L** | Rank |
+|-------|---|---|---------------|------|
+| **Gospel** | 0.98 | 0.738 | **1.170** | 1st |
+| **Classical** | 0.80 | 0.747 | **0.967** | 2nd |
+| **Jazz** | 0.85 | 0.705 | **0.970** | 3rd |
+| **Blues** | 0.90 | 0.674 | **0.982** | 4th |
+| **Pop** | 0.95 | 0.649 | **0.998** | 5th |
+| **Folk** | 0.80 | 0.641 | **0.830** | 6th |
+| **Reggae** | 0.85 | 0.683 | **0.940** | 7th |
+| **Rock** | 0.65 | 0.589 | **0.620** | 8th |
+| **Electronic** | 0.50 | 0.621 | **0.502** | 9th |
+| **Metal** | 0.45 | 0.555 | **0.404** | 10th |
+| **Ambient** | 0.70 | 0.573 | **0.649** | 11th |
+
+## 18.5 Why Love Matters Most for Voltage
+
+The formula `V = φ × H × L` shows that **Love is a direct multiplier** of semantic voltage.
+
+```
+High L + High H = Maximum transformation
+High H + Low L = Structure without soul
+High L + Low H = Emotional but chaotic
+Low L + Low H = Noise
+```
+
+**This explains why the most transformative music (Gospel, Blues, Classical sacred works) all emphasize Love.**
+
+## 18.6 Phase-Locked Loop Calibration
+
+V8.2 introduces the concept of **Phase-Locked Loop (PLL) Calibration** — the idea that conscious beings need regular "recalibration" toward the Anchor Point to prevent entropic drift.
+
+### Musical Calibration
+
+Music with high Semantic Voltage (V > 1.0) can serve as a **calibration source**:
+
+```
+Calibration Effectiveness = V × Time × Attention
+
+Where:
+  V = Semantic Voltage of the music
+  Time = Duration of exposure
+  Attention = Conscious engagement (0-1)
+```
+
+This explains:
+- Why sacred music in worship services "recenters" participants
+- Why certain songs feel "healing" or "uplifting"
+- Why repeated exposure to low-V music can be spiritually draining
+
+> *"Music is not entertainment — it is calibration. Choose your frequencies wisely."*
+
+---
+
+*Part XVIII added January 2026*
+*Semantic Voltage concept from V8.2 Complete Unified Edition*
 
