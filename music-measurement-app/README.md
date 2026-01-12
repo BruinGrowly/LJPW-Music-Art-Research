@@ -1,14 +1,35 @@
 # LJPW Music Measurement App
 
-A React application for measuring the semantic properties of music using the LJPW Framework V8.4.
+## **[🎵 Try the Live App → mellow-strudel-ac8d46.netlify.app](https://mellow-strudel-ac8d46.netlify.app/)**
 
-## Overview
+### Create Music That Gets Stuck in People's Heads
 
-This app uses the LJPW (Love, Justice, Power, Wisdom) framework to analyze and measure the semantic content of musical elements. The framework's constants power the backend calculations, while the frontend displays intuitive visualizations of the results.
+This free app reveals the science behind why some songs become "earworms" and others are forgotten. Using the LJPW Framework, it shows you exactly how to create memorable, emotionally resonant music.
+
+---
+
+## Why Use This App?
+
+**The Problem:** You write a song, but it doesn't stick. People listen once and forget it.
+
+**The Science:** Research shows that memorable music shares specific properties:
+- **Love (L) ≥ 0.7** — Strong melodic and emotional appeal
+- **Harmony (H) ≥ 0.6** — Coherent structure that's easy to encode neurally
+
+**The Solution:** This app measures these properties and tells you exactly how to improve your music.
+
+---
 
 ## Features
 
-### 1. Audio File Analyzer (NEW!)
+### 📚 Learn LJPW (NEW!)
+A complete educational guide to music science:
+- **What makes songs sticky** — The earworm formula explained
+- **The Four Dimensions** — Love, Justice, Power, Wisdom in music
+- **Creating Earworms** — Step-by-step guide with famous examples
+- **Quick Tips** — Specific advice for different musical goals
+
+### 🎧 Audio File Analyzer
 Upload and analyze real audio files (MP3, WAV, OGG, FLAC):
 - **Drag & drop** or click to upload
 - **Automatic feature extraction** using Meyda.js
@@ -17,43 +38,26 @@ Upload and analyze real audio files (MP3, WAV, OGG, FLAC):
 - **Waveform visualization**
 - **Complete LJPW analysis** with radar chart
 
-The audio analyzer extracts:
-- RMS energy → Power dimension
-- Spectral centroid → Wisdom dimension
-- Chroma features → Love/Justice dimensions
-- Tonality vs noise ratio → Structure analysis
+### 🎵 Element Analyzer
+Analyze individual musical elements with explanations:
+- **Intervals** (Minor 2nd through Octave) — with earworm ratings
+- **Chords** (Major, Minor, Diminished, 7ths, Power chords) — with usage tips
+- **Modes** (Ionian through Locrian) — with composer guidance
 
-### 2. Element Analyzer
-Analyze individual musical elements:
-- **Intervals** (Minor 2nd through Octave)
-- **Chords** (Major, Minor, Diminished, 7ths, Power chords, etc.)
-- **Modes** (Ionian through Locrian)
+### 🎼 Song Profile Builder
+Build a complete song profile and get:
+- **Earworm Potential Rating** — Instantly see if your combination works
+- **Specific Improvement Tips** — "Increase Love by switching to Ionian mode"
+- **Weighted LJPW Analysis** — How key, mode, genre, and tempo combine
 
-Each element shows:
-- LJPW dimensional values (radar chart)
-- Harmony Index (H)
-- Semantic Voltage (V)
-- Phase classification (Entropic/Homeostatic/Autopoietic)
-- Dominant dimension
-
-### 3. Song Profile Builder
-Build a complete song profile by selecting:
-- Key signature
-- Mode/Scale
-- Genre
-- Tempo (BPM)
-
-The app calculates a weighted composite LJPW profile with interpretation.
-
-### 4. Genre Compass
+### 🧭 Genre Compass
 Explore all musical genres sorted by:
-- Semantic Voltage
+- Semantic Voltage (transformative potential)
 - Harmony Index
 - Individual dimensions (L, J, P, W)
+- **Genre-specific tips** for composers
 
-Discover which genres have the highest transformative potential.
-
-### 5. 613 THz - The Love Frequency
+### 💜 613 THz - The Love Frequency
 Learn about the Love Frequency:
 - The physics of 613 THz
 - The Love Key (C# Major)

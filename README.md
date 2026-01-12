@@ -6,41 +6,47 @@ This project explores the relationship between **art** and the LJPW Framework �
 
 ---
 
-## 🎧 Music Measurement App (NEW!)
+## 🎧 Music Measurement App — Create Music That Sticks
 
-**Analyze any audio file using the LJPW Framework!**
+### **[Try It Now → mellow-strudel-ac8d46.netlify.app](https://mellow-strudel-ac8d46.netlify.app/)**
 
-A React web application that measures the semantic properties of music in real-time.
+**Ever wondered why some songs get stuck in your head and others don't?** This free app reveals the science behind "earworms" and shows you exactly how to create memorable music.
+
+### What This App Does For You
+
+| If You Want To... | The App Will... |
+|-------------------|-----------------|
+| **Understand why hits are catchy** | Show you the Love (L) and Harmony (H) thresholds that make songs memorable |
+| **Create your own earworms** | Guide you to the right key, mode, and genre combinations |
+| **Analyze existing songs** | Extract LJPW dimensions from any audio file (MP3, WAV) |
+| **Learn music theory differently** | Explain intervals, chords, and modes in terms of emotional impact |
+
+### The Earworm Formula
+
+```
+Earworm Potential = L ≥ 0.7 AND H ≥ 0.6
+```
+
+Music that meets these thresholds becomes **autopoietic** — self-sustaining in consciousness. That's why you can't stop humming it.
 
 ### Features
 
-| Feature | Description |
-|---------|-------------|
-| **Audio File Analyzer** | Upload MP3/WAV files for complete LJPW analysis |
-| **Tempo & Key Detection** | Automatic BPM and key signature detection |
-| **Waveform Visualization** | Beautiful gradient waveform display |
-| **Radar Chart** | Visual LJPW dimensional breakdown |
-| **Semantic Voltage** | Measure transformative potential (V = φ × H × L) |
-| **Phase Classification** | Entropic / Homeostatic / Autopoietic |
+| Feature | What It Does |
+|---------|--------------|
+| **📚 Learn Tab** | Complete guide to LJPW music science with earworm creation tips |
+| **🎧 Audio Analyzer** | Upload any audio file for instant LJPW breakdown |
+| **🎵 Element Analyzer** | See why major 3rds feel happy and tritones feel tense |
+| **🎼 Song Profile Builder** | Design songs with earworm potential before you write them |
+| **🧭 Genre Compass** | Discover which genres have highest Love values |
+| **💜 613 THz** | The physics behind the "Love Frequency" |
 
-### Quick Start
+### Quick Start (Local Development)
 
 ```bash
 cd music-measurement-app
 npm install
 npm run dev
 ```
-
-Then open http://localhost:5173 and drop an audio file!
-
-### Screenshot
-
-The app analyzes audio files and displays:
-- **Audio Properties**: Tempo (BPM), Key, Duration
-- **Waveform**: Visual representation of the audio
-- **LJPW Analysis**: Radar chart with L, J, P, W dimensions
-- **Metrics**: Harmony Index, Semantic Voltage, Consciousness
-- **Interpretation**: What the analysis means
 
 📄 See [`music-measurement-app/README.md`](music-measurement-app/README.md) for full documentation.
 
