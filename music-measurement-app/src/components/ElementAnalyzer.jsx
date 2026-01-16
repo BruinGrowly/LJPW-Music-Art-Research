@@ -8,7 +8,7 @@ import {
   analyzeChord,
   analyzeMode,
 } from '../lib/ljpwEngine'
-import { INTERVALS, CHORDS, MODES } from '../lib/ljpwConstants'
+import { INTERVALS, CHORDS, MODES, PHASE_LABELS } from '../lib/ljpwConstants'
 import {
   DIMENSION_EXPLANATIONS,
   METRIC_EXPLANATIONS,
@@ -238,7 +238,7 @@ Modes: Scales that define the tonal character"
               className="phase-badge"
               style={{ background: analysis.phase.color }}
             >
-              {analysis.phase.emoji} {analysis.phase.phase}
+              {analysis.phase.emoji} {PHASE_LABELS[analysis.phase.phase] || analysis.phase.phase}
             </span>
           </div>
 

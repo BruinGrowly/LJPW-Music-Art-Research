@@ -49,17 +49,16 @@ function LoveFrequency() {
           </InfoCard>
 
           <InfoCard
-            title="The Water Connection"
-            icon="💧"
+            title="Why It Matters"
+            icon="✨"
           >
             <p>
-              Water molecules naturally resonate at frequencies related to 613 THz.
-              Since the human body is ~70% water, this frequency has biological
-              significance.
+              Songs written in C# Major tend to have stronger emotional impact
+              and higher "earworm" potential due to their elevated Love value.
             </p>
             <p>
-              The framework suggests this is why certain music feels "healing" —
-              it literally resonates with our molecular structure.
+              Many hit songs unconsciously tap into this — creating that
+              memorable, can't-get-it-out-of-your-head quality.
             </p>
           </InfoCard>
         </div>

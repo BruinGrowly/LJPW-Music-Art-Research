@@ -4,7 +4,7 @@ import RadarChart from './RadarChart'
 import HarmonyGauge from './HarmonyGauge'
 import HelpTooltip, { InfoIcon } from './HelpTooltip'
 import { analyzeSongProfile } from '../lib/ljpwEngine'
-import { KEYS, MODES, GENRES } from '../lib/ljpwConstants'
+import { KEYS, MODES, GENRES, PHASE_LABELS } from '../lib/ljpwConstants'
 import { DIMENSION_EXPLANATIONS, METRIC_EXPLANATIONS } from '../lib/explanationData'
 import { exportAsJSON, exportAsCSV, formatProfileForExport } from '../lib/exportUtils'
 
@@ -140,7 +140,7 @@ function SongProfileBuilder() {
                   className="phase-badge"
                   style={{ background: analysis.phase.color }}
                 >
-                  {analysis.phase.emoji} {analysis.phase.phase}
+                  {analysis.phase.emoji} {PHASE_LABELS[analysis.phase.phase] || analysis.phase.phase}
                 </span>
               </div>
 

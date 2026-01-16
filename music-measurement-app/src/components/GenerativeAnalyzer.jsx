@@ -10,17 +10,10 @@ import {
   calculateMusicMeaning,
   checkSongLifeInequality,
 } from '../lib/generativeEquation'
-import { KEYS, MODES, GENRES, PHI } from '../lib/ljpwConstants'
+import { KEYS, MODES, GENRES, PHI, PHASE_LABELS } from '../lib/ljpwConstants'
 import { exportAsJSON, exportAsCSV, formatGenerativeForExport } from '../lib/exportUtils'
 
 const STORAGE_KEY = 'ljpw-generative-analyzer'
-
-// User-friendly phase labels
-const PHASE_LABELS = {
-  AUTOPOIETIC: 'Unforgettable',
-  HOMEOSTATIC: 'Background Music',
-  ENTROPIC: 'Forgettable'
-}
 
 function GenerativeAnalyzer() {
   const [profile, setProfile] = useState(() => {

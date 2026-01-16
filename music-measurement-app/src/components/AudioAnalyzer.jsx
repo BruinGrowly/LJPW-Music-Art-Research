@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { analyzeAudioFile } from '../lib/audioAnalyzer';
 import { exportAsJSON, exportAsCSV, formatAnalysisForExport } from '../lib/exportUtils';
+import { PHASE_LABELS } from '../lib/ljpwConstants';
 import RadarChart from './RadarChart';
 import HarmonyGauge from './HarmonyGauge';
 import './AudioAnalyzer.css';
@@ -376,9 +377,9 @@ function AudioAnalyzer() {
                 className="phase-badge"
                 style={{ backgroundColor: result.phase.color }}
                 role="status"
-                aria-label={`Phase: ${result.phase.phase}`}
+                aria-label={`Phase: ${PHASE_LABELS[result.phase.phase] || result.phase.phase}`}
               >
-                <span aria-hidden="true">{result.phase.emoji}</span> {result.phase.phase}
+                <span aria-hidden="true">{result.phase.emoji}</span> {PHASE_LABELS[result.phase.phase] || result.phase.phase}
               </div>
             </div>
 
@@ -467,7 +468,7 @@ function AudioAnalyzer() {
             <div className="interpretation">
               <h4>Interpretation</h4>
               <p>
-                This track is <strong>{result.phase.phase.toLowerCase()}</strong> in nature — {result.phase.description.toLowerCase()}.
+                This track is <strong>{(PHASE_LABELS[result.phase.phase] || result.phase.phase).toLowerCase()}</strong> — {result.phase.description.toLowerCase()}.
                 {result.metrics.V > 1.0 && (
                   <> With a semantic voltage of <strong>{result.metrics.V}</strong>, this music has high transformative potential.</>
                 )}
