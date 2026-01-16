@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import './GenreCompass.css'
 import HelpTooltip, { InfoIcon } from './HelpTooltip'
 import { getGenresByVoltage, analyzeGenre } from '../lib/ljpwEngine'
-import { GENRES } from '../lib/ljpwConstants'
+import { GENRES, PHASE_LABELS } from '../lib/ljpwConstants'
 import { METRIC_EXPLANATIONS } from '../lib/explanationData'
 
 function GenreCompass() {
@@ -127,7 +127,7 @@ function GenreCompass() {
               className="phase-indicator"
               style={{ background: genre.phase.color }}
             >
-              {genre.phase.phase}
+              {PHASE_LABELS[genre.phase.phase] || genre.phase.phase}
             </div>
 
             {selectedGenre === genre.key && (

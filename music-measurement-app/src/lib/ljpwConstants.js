@@ -63,6 +63,22 @@ export const PHASE_THRESHOLDS = {
 };
 
 // =============================================================================
+// USER-FRIENDLY PHASE LABELS
+// =============================================================================
+
+export const PHASE_LABELS = {
+  AUTOPOIETIC: 'Unforgettable',
+  HOMEOSTATIC: 'Background Music',
+  ENTROPIC: 'Forgettable'
+};
+
+export const PHASE_DESCRIPTIONS = {
+  AUTOPOIETIC: 'This sticks in your mind - high earworm potential',
+  HOMEOSTATIC: 'Pleasant but may not leave a lasting impression',
+  ENTROPIC: 'Unlikely to be remembered - lacks emotional stickiness'
+};
+
+// =============================================================================
 // MUSICAL INTERVALS
 // =============================================================================
 
