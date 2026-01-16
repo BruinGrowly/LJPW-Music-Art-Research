@@ -9,11 +9,11 @@
 .builder-header h2 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .builder-header p {
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
 }
 
@@ -39,7 +39,7 @@
 
 .input-card h3 {
   font-size: 1.1rem;
-  color: #fff;
+  color: var(--color-text-primary);
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -52,7 +52,7 @@
 .input-group label {
   display: block;
   font-size: 0.85rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   margin-bottom: 0.5rem;
 }
 
@@ -61,7 +61,7 @@
   padding: 0.75rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  color: var(--color-text-primary);
   border-radius: 8px;
   font-size: 0.9rem;
   cursor: pointer;
@@ -69,7 +69,7 @@
 
 .input-group select:focus {
   outline: none;
-  border-color: #6c5ce7;
+  border-color: var(--color-wisdom);
 }
 
 .input-group input[type="range"] {
@@ -95,7 +95,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 0.75rem;
-  color: #666;
+  color: var(--color-text-muted);
   margin-top: 0.5rem;
 }
 
@@ -104,7 +104,7 @@
   padding: 1rem;
   background: linear-gradient(135deg, #4ecdc4, #44a08d);
   border: none;
-  color: #fff;
+  color: var(--color-text-primary);
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
@@ -136,7 +136,7 @@
 
 .result-header h3 {
   font-size: 1.3rem;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .phase-badge {
@@ -144,7 +144,7 @@
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .chart-container {
@@ -188,13 +188,13 @@
 .metric-value-large {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-text-primary);
   margin-bottom: 0.25rem;
 }
 
 .metric-desc {
   font-size: 0.7rem;
-  color: #666;
+  color: var(--color-text-muted);
 }
 
 .additional-metrics {
@@ -215,18 +215,18 @@
 
 .metric-label {
   font-size: 0.75rem;
-  color: #666;
+  color: var(--color-text-muted);
   text-transform: uppercase;
 }
 
 .metric-value {
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .metric-value.consciousness {
-  color: #6c5ce7;
+  color: var(--color-wisdom);
 }
 
 .interpretation {
@@ -237,7 +237,7 @@
 
 .interpretation h4 {
   font-size: 0.9rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   margin-bottom: 0.75rem;
 }
 
@@ -261,7 +261,7 @@
 }
 
 .placeholder-card p {
-  color: #666;
+  color: var(--color-text-muted);
   font-size: 1rem;
 }
 
@@ -282,7 +282,7 @@
 .threshold-met {
   display: inline-block;
   margin-left: 4px;
-  color: #2ed573;
+  color: var(--color-autopoietic);
   font-size: 0.9em;
 }
 
@@ -297,7 +297,7 @@
 
 .earworm-tips h4 {
   font-size: 1rem;
-  color: #fff;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
 }
 
@@ -344,7 +344,7 @@
 }
 
 .earworm-analysis.high .status-label {
-  color: #2ed573;
+  color: var(--color-autopoietic);
 }
 
 .earworm-analysis.moderate .status-label {
@@ -376,6 +376,6 @@
 
 .earworm-tips-list li::before {
   content: '• ';
-  color: #6c5ce7;
+  color: var(--color-wisdom);
   margin-right: 4px;
 }

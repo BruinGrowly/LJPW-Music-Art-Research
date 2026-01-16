@@ -9,11 +9,11 @@
 .analyzer-header h2 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .analyzer-header p {
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
 }
 
@@ -37,7 +37,7 @@
 
 .equation-label {
   font-size: 0.75rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -45,7 +45,7 @@
 .equation-formula {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
   font-family: 'Courier New', monospace;
 }
 
@@ -79,7 +79,7 @@
 
 .input-card h3 {
   font-size: 1.1rem;
-  color: #fff;
+  color: var(--color-text-primary);
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -94,7 +94,7 @@
   align-items: center;
   gap: 8px;
   font-size: 0.85rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   margin-bottom: 0.5rem;
 }
 
@@ -103,7 +103,7 @@
   padding: 0.75rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  color: var(--color-text-primary);
   border-radius: 8px;
   font-size: 0.9rem;
   cursor: pointer;
@@ -111,7 +111,7 @@
 
 .input-group select:focus {
   outline: none;
-  border-color: #6c5ce7;
+  border-color: var(--color-wisdom);
 }
 
 .input-group input[type="range"] {
@@ -137,7 +137,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 0.7rem;
-  color: #666;
+  color: var(--color-text-muted);
   margin-top: 0.5rem;
 }
 
@@ -146,7 +146,7 @@
   padding: 1rem;
   background: linear-gradient(135deg, #6c5ce7, #a29bfe);
   border: none;
-  color: #fff;
+  color: var(--color-text-primary);
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
@@ -182,7 +182,7 @@
 
 .result-card h3 {
   font-size: 1rem;
-  color: #fff;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -201,7 +201,7 @@
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 /* Summary Card */
@@ -242,7 +242,7 @@
 .summary-metric .metric-label {
   display: block;
   font-size: 0.75rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
@@ -260,7 +260,7 @@
 
 .summary-metric .metric-desc {
   font-size: 0.7rem;
-  color: #666;
+  color: var(--color-text-muted);
 }
 
 /* Life Inequality Card */
@@ -295,21 +295,21 @@
 .term-label {
   display: block;
   font-size: 0.75rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   margin-bottom: 0.5rem;
 }
 
 .term-formula {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
   font-family: 'Courier New', monospace;
 }
 
 .inequality-operator {
   font-size: 2rem;
   font-weight: bold;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .life-verdict {
@@ -352,13 +352,13 @@
 
 .hope-reason {
   font-size: 0.9rem;
-  color: #ccc;
+  color: var(--color-text-secondary);
   margin-bottom: 0.5rem;
 }
 
 .hope-detail {
   font-size: 0.85rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
 }
 
 .hope-strength-bar {
@@ -387,7 +387,7 @@
   transform: translate(-50%, -50%);
   font-size: 0.8rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -420,7 +420,7 @@
 .meter-value {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-text-primary);
   min-width: 60px;
 }
 
@@ -441,19 +441,19 @@
 .stat-label {
   display: block;
   font-size: 0.7rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   margin-bottom: 0.25rem;
 }
 
 .stat-value {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .earworm-verdict {
   font-size: 0.9rem;
-  color: #ccc;
+  color: var(--color-text-secondary);
   line-height: 1.5;
   margin-bottom: 1rem;
 }
@@ -501,7 +501,7 @@
 
 .perception-label {
   font-size: 0.8rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   min-width: 120px;
 }
 
@@ -530,7 +530,7 @@
 .perception-value {
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
   min-width: 50px;
   text-align: right;
 }
@@ -548,7 +548,7 @@
 
 .soul-label {
   font-size: 0.9rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
 }
 
 .soul-value {
@@ -559,7 +559,7 @@
 
 .perception-verdict {
   font-size: 0.85rem;
-  color: #ccc;
+  color: var(--color-text-secondary);
   text-align: center;
 }
 
@@ -589,18 +589,18 @@
 
 .prop-label {
   font-size: 0.9rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
 }
 
 .prop-value {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .prop-value.highlight {
   font-size: 1.8rem;
-  color: #6c5ce7;
+  color: var(--color-wisdom);
 }
 
 .critical-iterations {
@@ -609,7 +609,7 @@
 
 .critical-iterations h4 {
   font-size: 0.85rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   margin-bottom: 0.75rem;
 }
 
@@ -630,19 +630,19 @@
 .critical-distance {
   display: block;
   font-size: 0.75rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   margin-bottom: 0.25rem;
 }
 
 .critical-n {
   font-size: 1rem;
   font-weight: 600;
-  color: #6c5ce7;
+  color: var(--color-wisdom);
 }
 
 .propagation-verdict {
   font-size: 0.9rem;
-  color: #ccc;
+  color: var(--color-text-secondary);
   text-align: center;
   padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -682,7 +682,7 @@
 .placeholder-icon {
   font-size: 1.5rem;
   font-family: 'Courier New', monospace;
-  color: #6c5ce7;
+  color: var(--color-wisdom);
   margin-bottom: 1.5rem;
   padding: 1rem 2rem;
   background: rgba(108, 92, 231, 0.1);
@@ -691,7 +691,7 @@
 }
 
 .placeholder-card > p {
-  color: #666;
+  color: var(--color-text-muted);
   font-size: 1rem;
   margin-bottom: 2rem;
 }
@@ -707,7 +707,7 @@
 
 .placeholder-tips h4 {
   font-size: 0.9rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   margin-bottom: 1rem;
 }
 
@@ -719,7 +719,7 @@
 
 .placeholder-tips li {
   font-size: 0.85rem;
-  color: #ccc;
+  color: var(--color-text-secondary);
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -730,5 +730,5 @@
 
 .placeholder-tips li::before {
   content: '> ';
-  color: #6c5ce7;
+  color: var(--color-wisdom);
 }

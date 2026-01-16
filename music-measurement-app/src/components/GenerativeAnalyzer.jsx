@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './GenerativeAnalyzer.css'
 import RadarChart from './RadarChart'
 import HelpTooltip, { InfoIcon } from './HelpTooltip'
@@ -11,6 +11,9 @@ import {
   checkSongLifeInequality,
 } from '../lib/generativeEquation'
 import { KEYS, MODES, GENRES, PHI } from '../lib/ljpwConstants'
+import { exportAsJSON, exportAsCSV, formatGenerativeForExport } from '../lib/exportUtils'
+
+const STORAGE_KEY = 'ljpw-generative-analyzer'
 
 // User-friendly phase labels
 const PHASE_LABELS = {
@@ -20,15 +23,45 @@ const PHASE_LABELS = {
 }
 
 function GenerativeAnalyzer() {
-  const [profile, setProfile] = useState({
-    key: 'C#',
-    mode: 'ionian',
-    genre: 'gospel',
-    tempo: 76,
+  const [profile, setProfile] = useState(() => {
+    const saved = sessionStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      return parsed.profile || { key: 'C#', mode: 'ionian', genre: 'gospel', tempo: 76 }
+    }
+    return { key: 'C#', mode: 'ionian', genre: 'gospel', tempo: 76 }
   })
-  const [iterations, setIterations] = useState(10)
-  const [distance, setDistance] = useState(3)
-  const [analysis, setAnalysis] = useState(null)
+  const [iterations, setIterations] = useState(() => {
+    const saved = sessionStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      return JSON.parse(saved).iterations || 10
+    }
+    return 10
+  })
+  const [distance, setDistance] = useState(() => {
+    const saved = sessionStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      return JSON.parse(saved).distance || 3
+    }
+    return 3
+  })
+  const [analysis, setAnalysis] = useState(() => {
+    const saved = sessionStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      return JSON.parse(saved).analysis || null
+    }
+    return null
+  })
+
+  // Save to session storage when state changes
+  useEffect(() => {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({
+      profile,
+      iterations,
+      distance,
+      analysis
+    }))
+  }, [profile, iterations, distance, analysis])
 
   const handleChange = (field, value) => {
     setProfile((prev) => ({ ...prev, [field]: value }))
@@ -68,6 +101,20 @@ function GenerativeAnalyzer() {
       return "This song holds steady - pleasant but may not become a favorite"
     } else {
       return "This song fades over time - listeners may forget it quickly"
+    }
+  }
+
+  const handleExportJSON = () => {
+    const data = formatGenerativeForExport(analysis)
+    if (data) {
+      exportAsJSON(data, 'song-impact-analysis')
+    }
+  }
+
+  const handleExportCSV = () => {
+    const data = formatGenerativeForExport(analysis)
+    if (data) {
+      exportAsCSV(data, 'song-impact-analysis')
     }
   }
 
@@ -217,6 +264,24 @@ function GenerativeAnalyzer() {
         <div className="results-section">
           {analysis ? (
             <div className="analysis-results">
+              {/* Export Actions */}
+              <div className="export-actions">
+                <button
+                  className="export-btn"
+                  onClick={handleExportJSON}
+                  aria-label="Export analysis as JSON"
+                >
+                  <span aria-hidden="true">Export JSON</span>
+                </button>
+                <button
+                  className="export-btn"
+                  onClick={handleExportCSV}
+                  aria-label="Export analysis as CSV"
+                >
+                  <span aria-hidden="true">Export CSV</span>
+                </button>
+              </div>
+
               {/* Summary Card */}
               <div className="result-card summary-card">
                 <div className="result-header">
