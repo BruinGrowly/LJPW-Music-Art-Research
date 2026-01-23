@@ -665,4 +665,116 @@
     .thresholds-grid {
         grid-template-columns: 1fr;
     }
+
+    .v85-relationship-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* =============================================================================
+   V8.5 REALITY AS RELATIONSHIP SECTION
+   ============================================================================= */
+
+.v85-core {
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+    border: 1px solid rgba(108, 92, 231, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.v85-content {
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+.microcosm-box {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.tips-box {
+    background: rgba(46, 213, 115, 0.05);
+    border-left: 3px solid #2ed573;
+    padding-left: 20px;
+}
+
+.tips-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.tips-box li {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.v85-relationship-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.relationship-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.relationship-card:hover {
+    transform: translateY(-2px);
+}
+
+.relationship-card.love {
+    border-color: rgba(255, 107, 107, 0.3);
+    background: rgba(255, 107, 107, 0.05);
+}
+
+.relationship-card.justice {
+    border-color: rgba(78, 205, 196, 0.3);
+    background: rgba(78, 205, 196, 0.05);
+}
+
+.relationship-card.power {
+    border-color: rgba(255, 217, 61, 0.3);
+    background: rgba(255, 217, 61, 0.05);
+}
+
+.relationship-card.wisdom {
+    border-color: rgba(108, 92, 231, 0.3);
+    background: rgba(108, 92, 231, 0.05);
+}
+
+.rel-emoji {
+    font-size: 28px;
+}
+
+.rel-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.rel-music {
+    font-size: 16px;
+    font-weight: 700;
+    color: #6c5ce7;
+}
+
+.rel-desc {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
 }
