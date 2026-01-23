@@ -1,0 +1,239 @@
+/* =============================================================================
+   TITLE SCREEN - Mysterious atmosphere
+   ============================================================================= */
+
+.title-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, var(--bg-dark) 0%, var(--bg-deep) 70%);
+}
+
+.title-content {
+  max-width: 700px;
+  padding: 2rem;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Title */
+.title {
+  font-size: 3rem;
+  color: var(--text-primary);
+  text-shadow: 0 0 30px rgba(107, 91, 149, 0.5);
+  margin-bottom: 0.5rem;
+  animation: titleFade 2s ease-out;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--accent-mystery);
+  font-style: italic;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.subtitle.visible {
+  opacity: 1;
+}
+
+/* Premise */
+.premise {
+  max-width: 550px;
+  margin: 0 auto 2rem;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.premise.visible {
+  opacity: 1;
+}
+
+.premise p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.premise .cryptic {
+  color: var(--accent-hope);
+  font-style: italic;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-left: 2px solid var(--accent-hope);
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+/* Learn info */
+.learn-info {
+  background: rgba(107, 91, 149, 0.1);
+  border: 1px solid rgba(107, 91, 149, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  text-align: left;
+}
+
+.learn-info.visible {
+  opacity: 1;
+}
+
+.learn-info h3 {
+  color: var(--accent-mystery);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.learn-info ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.learn-info li {
+  color: var(--text-secondary);
+  padding: 0.4rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.learn-info li::before {
+  content: '♪';
+  position: absolute;
+  left: 0;
+  color: var(--accent-hope);
+}
+
+.no-experience {
+  color: var(--accent-discovery);
+  font-style: italic;
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0;
+}
+
+/* Start button */
+.start-button {
+  background: linear-gradient(135deg, var(--accent-mystery) 0%, #4a4070 100%);
+  color: white;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 2rem;
+}
+
+.start-button.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.start-button:hover {
+  background: linear-gradient(135deg, #7b6ba5 0%, var(--accent-mystery) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(107, 91, 149, 0.4);
+}
+
+.button-text {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+
+.button-subtext {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 0.25rem;
+}
+
+/* Credits */
+.credits {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.credits.visible {
+  opacity: 1;
+}
+
+.credits p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+/* Fog effect */
+.fog {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.008' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.fog-1 {
+  animation: fogDrift1 60s linear infinite;
+}
+
+.fog-2 {
+  animation: fogDrift2 80s linear infinite reverse;
+  opacity: 0.02;
+}
+
+@keyframes fogDrift1 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+@keyframes fogDrift2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50%, 25%); }
+}
+
+/* Vignette */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, var(--bg-deep) 100%);
+  pointer-events: none;
+}
+
+@keyframes titleFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .title-content {
+    padding: 1rem;
+  }
+
+  .premise p {
+    font-size: 1rem;
+  }
+}

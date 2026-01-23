@@ -1,0 +1,179 @@
+/* =============================================================================
+   GAME CONTAINER
+   ============================================================================= */
+
+.game {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Chapter overlay */
+.chapter-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 18, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: chapterFade 3s ease-in-out;
+}
+
+.chapter-title {
+  font-size: 2rem;
+  color: var(--accent-mystery);
+  margin-bottom: 1rem;
+  animation: chapterSlide 3s ease-out;
+}
+
+.chapter-description {
+  color: var(--text-secondary);
+  font-style: italic;
+  animation: chapterSlide 3s ease-out 0.3s backwards;
+}
+
+@keyframes chapterFade {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+@keyframes chapterSlide {
+  0% { opacity: 0; transform: translateY(20px); }
+  20%, 80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; }
+}
+
+/* Message overlay */
+.message-overlay {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 500px;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  z-index: 50;
+  animation: messagePop 0.3s ease-out;
+}
+
+.message-overlay.success {
+  background: rgba(46, 213, 115, 0.15);
+  border: 1px solid var(--accent-discovery);
+  color: var(--accent-discovery);
+}
+
+.message-overlay.locked {
+  background: rgba(255, 107, 107, 0.15);
+  border: 1px solid var(--accent-warning);
+  color: var(--accent-warning);
+}
+
+.message-overlay.victory {
+  background: rgba(255, 217, 61, 0.15);
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+@keyframes messagePop {
+  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Victory overlay */
+.victory-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 18, 0.98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  animation: victoryFade 1s ease-out;
+}
+
+.victory-content {
+  max-width: 600px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.victory-content h2 {
+  color: var(--accent-gold);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 30px rgba(255, 217, 61, 0.5);
+}
+
+.victory-content p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.victory-content .final-message {
+  color: var(--accent-hope);
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(78, 205, 196, 0.3);
+}
+
+.victory-content button {
+  margin-top: 2rem;
+  background: var(--accent-mystery);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.victory-content button:hover {
+  background: #7b6ba5;
+}
+
+@keyframes victoryFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Game controls */
+.game-controls {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 20;
+}
+
+.control-btn {
+  background: rgba(37, 37, 66, 0.9);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-btn:hover {
+  background: var(--bg-light);
+  color: var(--text-primary);
+}
+
+.progress {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}

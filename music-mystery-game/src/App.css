@@ -1,0 +1,11 @@
+/* =============================================================================
+   APP CONTAINER
+   ============================================================================= */
+
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--silence-deep) 100%);
+}

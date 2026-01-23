@@ -1,0 +1,270 @@
+/* =============================================================================
+   ROOM COMPONENT
+   ============================================================================= */
+
+.room {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  position: relative;
+}
+
+/* Atmosphere variants */
+.room.atmosphere-mysterious {
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.5) 0%, rgba(10, 10, 18, 0.8) 100%);
+}
+
+.room.atmosphere-discovery {
+  background: linear-gradient(180deg, rgba(78, 205, 196, 0.05) 0%, rgba(10, 10, 18, 0.8) 100%);
+}
+
+.room.atmosphere-tension {
+  background: linear-gradient(180deg, rgba(255, 107, 107, 0.05) 0%, rgba(10, 10, 18, 0.8) 100%);
+}
+
+.atmosphere-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at top, transparent 50%, var(--bg-deep) 100%);
+}
+
+/* Header */
+.room-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(107, 91, 149, 0.3);
+}
+
+.room-name {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.chapter-indicator {
+  color: var(--accent-mystery);
+  font-size: 0.85rem;
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+/* Description */
+.room-description {
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.room-description p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+  text-indent: 1.5em;
+}
+
+.room-description p:first-child {
+  text-indent: 0;
+}
+
+/* Interactables */
+.interactables {
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.interactables h3 {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-bottom: 0.75rem;
+}
+
+.interactable-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.interactable-btn {
+  background: rgba(107, 91, 149, 0.15);
+  color: var(--accent-mystery);
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(107, 91, 149, 0.3);
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.interactable-btn:hover {
+  background: rgba(107, 91, 149, 0.25);
+  border-color: var(--accent-mystery);
+}
+
+.interactable-btn.examined {
+  background: rgba(78, 205, 196, 0.1);
+  color: var(--accent-hope);
+  border-color: rgba(78, 205, 196, 0.3);
+}
+
+.examined-mark {
+  margin-left: 0.25rem;
+  font-size: 0.8rem;
+}
+
+/* Examine panel */
+.examine-panel {
+  background: rgba(26, 26, 46, 0.95);
+  border: 1px solid rgba(107, 91, 149, 0.4);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  animation: panelSlide 0.3s ease-out;
+}
+
+@keyframes panelSlide {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.examine-panel .close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+}
+
+.examine-panel .close-btn:hover {
+  color: var(--text-primary);
+}
+
+.examine-panel h4 {
+  color: var(--accent-hope);
+  margin-bottom: 1rem;
+}
+
+.examine-text p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+
+.interactive-hint {
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 217, 61, 0.2);
+}
+
+.reveal-text {
+  color: var(--accent-discovery);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(46, 213, 115, 0.1);
+  border-radius: 4px;
+}
+
+/* Navigation */
+.navigation {
+  position: relative;
+  z-index: 1;
+}
+
+.navigation h3 {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-bottom: 0.75rem;
+}
+
+.exits {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.exit-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(37, 37, 66, 0.8);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.exit-btn:hover {
+  background: rgba(107, 91, 149, 0.3);
+  border-color: var(--accent-mystery);
+}
+
+.exit-btn.locked {
+  opacity: 0.6;
+}
+
+.exit-btn.locked:hover {
+  background: rgba(255, 107, 107, 0.1);
+  border-color: var(--accent-warning);
+}
+
+.direction {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  min-width: 60px;
+}
+
+.exit-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.locked-desc em {
+  color: var(--accent-warning);
+}
+
+/* Lesson hint */
+.lesson-hint {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255, 217, 61, 0.08);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 0 4px 4px 0;
+}
+
+.lesson-hint p {
+  color: var(--accent-gold);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .room {
+    padding: 1rem;
+  }
+
+  .room-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .room-description p {
+    font-size: 1rem;
+    text-indent: 0;
+  }
+}
