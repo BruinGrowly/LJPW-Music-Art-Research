@@ -1,0 +1,112 @@
+/* =============================================================================
+   SILENCE METER - The Antagonist's Presence
+   ============================================================================= */
+
+.silence-meter {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  max-width: 300px;
+  background: rgba(26, 26, 46, 0.9);
+  border: 1px solid rgba(107, 91, 149, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.meter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.meter-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+}
+
+.meter-value {
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.meter-bar {
+  position: relative;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease-out, background 1s ease;
+}
+
+.meter-markers {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2px;
+}
+
+.marker {
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.meter-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lessons-count {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.meter-hint {
+  color: var(--accent-mystery);
+  font-size: 0.75rem;
+  font-style: italic;
+  animation: hintPulse 3s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* When silence is high (oppressive) */
+.silence-meter:has(.meter-fill[style*="width: 8"]),
+.silence-meter:has(.meter-fill[style*="width: 9"]),
+.silence-meter:has(.meter-fill[style*="width: 100"]) {
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+/* When silence is breaking */
+.silence-meter:has(.meter-fill[style*="width: 2"]),
+.silence-meter:has(.meter-fill[style*="width: 3"]),
+.silence-meter:has(.meter-fill[style*="width: 4"]) {
+  border-color: rgba(78, 205, 196, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .silence-meter {
+    max-width: none;
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+}

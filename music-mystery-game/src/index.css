@@ -1,0 +1,116 @@
+/* =============================================================================
+   ECHOES OF ASHWORTH - Global Styles
+   A Musical Mystery
+   ============================================================================= */
+
+:root {
+  /* Color palette - mysterious, dark, with hints of hope */
+  --bg-deep: #0a0a12;
+  --bg-dark: #12121f;
+  --bg-medium: #1a1a2e;
+  --bg-light: #252542;
+
+  --text-primary: #e8e8f0;
+  --text-secondary: #a0a0b8;
+  --text-muted: #606080;
+
+  --accent-mystery: #6b5b95;
+  --accent-hope: #4ecdc4;
+  --accent-warning: #ff6b6b;
+  --accent-gold: #ffd93d;
+  --accent-discovery: #7bed9f;
+
+  /* Silence colors */
+  --silence-deep: #1a0a1a;
+  --silence-medium: #2a1a2a;
+
+  /* Typography */
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Crimson Text', serif;
+  --font-mono: 'Source Code Pro', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+#root {
+  height: 100%;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-mystery);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-mystery);
+  color: white;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--accent-hope);
+  outline-offset: 2px;
+}

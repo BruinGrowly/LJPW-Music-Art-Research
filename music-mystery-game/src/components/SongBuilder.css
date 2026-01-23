@@ -1,0 +1,307 @@
+/* =============================================================================
+   SONG BUILDER MODAL - The Final Composition
+   ============================================================================= */
+
+.song-builder-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 18, 0.98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.song-builder-content {
+  background: linear-gradient(180deg, var(--bg-medium) 0%, var(--bg-dark) 100%);
+  border: 2px solid rgba(255, 217, 61, 0.3);
+  border-radius: 16px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 0 60px rgba(255, 217, 61, 0.1);
+  animation: builderGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes builderGlow {
+  0% { box-shadow: 0 0 40px rgba(255, 217, 61, 0.1); }
+  100% { box-shadow: 0 0 80px rgba(255, 217, 61, 0.2); }
+}
+
+.song-builder-content .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.song-builder-content .close-btn:hover {
+  color: var(--text-primary);
+}
+
+.song-builder-content h2 {
+  color: var(--accent-gold);
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(255, 217, 61, 0.3);
+}
+
+.builder-intro {
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* Mode selector */
+.mode-selector {
+  margin-bottom: 1.5rem;
+}
+
+.mode-selector label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.mode-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.mode-btn {
+  background: rgba(37, 37, 66, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.75rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.mode-btn:hover {
+  border-color: var(--accent-mystery);
+}
+
+.mode-btn.selected {
+  background: rgba(107, 91, 149, 0.3);
+  border-color: var(--accent-mystery);
+}
+
+.mode-btn strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.mode-btn span {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+/* Note palette */
+.note-palette {
+  margin-bottom: 1.5rem;
+}
+
+.note-palette label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.scale-notes {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.scale-note {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(180deg, rgba(78, 205, 196, 0.2) 0%, rgba(78, 205, 196, 0.1) 100%);
+  border: 2px solid var(--accent-hope);
+  border-radius: 8px;
+  color: var(--accent-hope);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.scale-note:hover:not(:disabled) {
+  background: var(--accent-hope);
+  color: var(--bg-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+}
+
+.scale-note:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Melody display */
+.melody-display {
+  margin-bottom: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.melody-display label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.melody-notes {
+  min-height: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.empty-melody {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.melody-note {
+  background: var(--accent-mystery);
+  color: white;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  animation: noteAppear 0.2s ease-out;
+}
+
+@keyframes noteAppear {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Builder controls */
+.builder-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.builder-controls button {
+  flex: 1;
+  background: rgba(37, 37, 66, 0.8);
+  color: var(--text-secondary);
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+}
+
+.builder-controls button:hover:not(:disabled) {
+  background: var(--bg-light);
+  color: var(--text-primary);
+}
+
+.builder-controls .play-btn {
+  background: var(--accent-mystery);
+  color: white;
+  border-color: var(--accent-mystery);
+}
+
+.builder-controls .play-btn:hover:not(:disabled) {
+  background: #7b6ba5;
+}
+
+/* Completion section */
+.completion-section {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.ready-message {
+  color: var(--accent-gold);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.progress-message {
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+.complete-btn {
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #e6c02a 100%);
+  color: var(--bg-dark);
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-family: var(--font-display);
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(255, 217, 61, 0.3);
+  animation: completeGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes completeGlow {
+  0% { box-shadow: 0 0 20px rgba(255, 217, 61, 0.3); }
+  100% { box-shadow: 0 0 40px rgba(255, 217, 61, 0.5); }
+}
+
+.complete-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ffe066 0%, var(--accent-gold) 100%);
+  transform: translateY(-2px);
+}
+
+/* Builder tips */
+.builder-tips {
+  background: rgba(107, 91, 149, 0.1);
+  border: 1px solid rgba(107, 91, 149, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.builder-tips h4 {
+  color: var(--accent-mystery);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.builder-tips ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.builder-tips li {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .mode-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .scale-note {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+}
