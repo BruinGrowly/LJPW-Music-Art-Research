@@ -9,11 +9,11 @@
 .compass-header h2 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .compass-header p {
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .sort-label {
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
 }
 
@@ -40,7 +40,7 @@
   padding: 0.5rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: transparent;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   border-radius: 20px;
   cursor: pointer;
   font-size: 0.85rem;
@@ -49,12 +49,12 @@
 
 .sort-buttons button:hover {
   background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .sort-buttons button.active {
   background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(108, 92, 231, 0.3));
-  color: #fff;
+  color: var(--color-text-primary);
   border-color: transparent;
 }
 
@@ -90,14 +90,14 @@
   top: 0.75rem;
   right: 0.75rem;
   font-size: 0.75rem;
-  color: #666;
+  color: var(--color-text-muted);
   font-weight: 600;
 }
 
 .genre-name {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
   margin-bottom: 0.25rem;
 }
 
@@ -154,14 +154,14 @@
 
 .metric-label {
   font-size: 0.7rem;
-  color: #666;
+  color: var(--color-text-muted);
   text-transform: uppercase;
 }
 
 .metric-value {
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .metric.voltage .metric-value {
@@ -176,7 +176,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .genre-details {
@@ -186,13 +186,13 @@
 }
 
 .genre-desc {
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
 
 .genre-phase-desc {
-  color: #666;
+  color: var(--color-text-muted);
   font-size: 0.85rem;
   font-style: italic;
 }
@@ -207,7 +207,7 @@
 
 .compass-legend h3 {
   font-size: 1rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   margin-bottom: 1rem;
 }
 
@@ -223,7 +223,7 @@
 }
 
 .compass-legend p {
-  color: #666;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
   max-width: 500px;
@@ -259,12 +259,12 @@
 }
 
 .scale-item.low .scale-value {
-  color: #666;
+  color: var(--color-text-muted);
 }
 
 .scale-label {
   font-size: 0.75rem;
-  color: #666;
+  color: var(--color-text-muted);
 }
 
 /* Compass Intro */
@@ -293,7 +293,7 @@
 .genre-tips strong {
   display: block;
   font-size: 0.85rem;
-  color: #fff;
+  color: var(--color-text-primary);
   margin-bottom: 8px;
 }
 
@@ -313,4 +313,171 @@
 .genre-tips-list li::before {
   content: '→ ';
   color: #6c5ce7;
+}
+
+/* ===========================================
+   Mobile Responsiveness
+   =========================================== */
+
+@media (max-width: 768px) {
+  .genre-compass {
+    padding: var(--spacing-lg, 1.5rem);
+  }
+
+  .compass-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .sort-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .sort-buttons {
+    width: 100%;
+  }
+
+  .sort-buttons button {
+    flex: 1;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.8rem;
+    min-height: 44px;
+  }
+
+  .genres-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .genre-card {
+    padding: 1rem;
+  }
+
+  .genre-name {
+    font-size: 1.1rem;
+  }
+
+  .genre-metrics {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .compass-legend {
+    padding: 1.5rem;
+  }
+
+  .formula {
+    font-size: 1.5rem;
+  }
+
+  .voltage-scale {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .compass-intro {
+    padding: 14px 16px;
+  }
+
+  .compass-intro p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .genre-compass {
+    padding: var(--spacing-md, 1rem);
+  }
+
+  .compass-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .compass-header p {
+    font-size: 0.85rem;
+  }
+
+  .sort-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sort-buttons button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .genre-card {
+    padding: 0.875rem;
+  }
+
+  .genre-name {
+    font-size: 1rem;
+    padding-right: 2rem;
+  }
+
+  .genre-dominant {
+    font-size: 0.8rem;
+  }
+
+  .genre-metrics {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .phase-indicator {
+    display: block;
+    text-align: center;
+  }
+
+  .genre-details {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+
+  .genre-desc,
+  .genre-phase-desc {
+    font-size: 0.85rem;
+  }
+
+  .compass-legend {
+    padding: 1rem;
+  }
+
+  .compass-legend h3 {
+    font-size: 0.9rem;
+  }
+
+  .formula {
+    font-size: 1.25rem;
+  }
+
+  .compass-legend p {
+    font-size: 0.85rem;
+  }
+
+  .voltage-scale {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .scale-item {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .genre-tips {
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  .genre-tips strong {
+    font-size: 0.8rem;
+  }
+
+  .genre-tips-list li {
+    font-size: 0.8rem;
+  }
 }

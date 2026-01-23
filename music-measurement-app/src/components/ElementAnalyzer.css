@@ -9,11 +9,11 @@
 .analyzer-header h2 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .analyzer-header p {
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
 }
 
@@ -36,7 +36,7 @@
 
 .control-group label {
   font-size: 0.8rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -50,7 +50,7 @@
   padding: 0.6rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: transparent;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -59,20 +59,20 @@
 
 .type-buttons button:hover {
   border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .type-buttons button.active {
   background: linear-gradient(135deg, #ff6b6b, #6c5ce7);
   border-color: transparent;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .control-group select {
   padding: 0.6rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  color: var(--color-text-primary);
   border-radius: 6px;
   font-size: 0.9rem;
   min-width: 200px;
@@ -88,7 +88,7 @@
   padding: 0.6rem 2rem;
   background: linear-gradient(135deg, #4ecdc4, #44a08d);
   border: none;
-  color: #fff;
+  color: var(--color-text-primary);
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.95rem;
@@ -120,7 +120,7 @@
 
 .result-header h3 {
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .phase-badge {
@@ -128,7 +128,7 @@
   border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .result-grid {
@@ -172,7 +172,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 0.85rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
 }
 
 .bar-track {
@@ -199,7 +199,7 @@
 
 .dominant-label {
   font-size: 0.85rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
 }
 
 .dominant-value {
@@ -211,7 +211,7 @@
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
   text-align: center;
   font-style: italic;
@@ -228,7 +228,7 @@
 
 .insight-summary {
   font-size: 0.95rem;
-  color: #fff;
+  color: var(--color-text-primary);
   font-weight: 500;
 }
 
@@ -238,7 +238,7 @@
   align-items: center;
   gap: 6px;
   font-size: 0.8rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -285,7 +285,7 @@
   align-items: center;
   gap: 6px;
   font-size: 0.85rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
 }
 
 /* Usage Guide */
@@ -299,7 +299,7 @@
 
 .usage-guide h4 {
   font-size: 1.1rem;
-  color: #fff;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
 }
 
@@ -333,7 +333,7 @@
 
 .earworm-label {
   font-size: 0.85rem;
-  color: #a0a0a0;
+  color: var(--color-text-secondary);
 }
 
 .earworm-rating {

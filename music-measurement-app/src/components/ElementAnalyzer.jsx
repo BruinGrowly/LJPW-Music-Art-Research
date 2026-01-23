@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './ElementAnalyzer.css'
 import RadarChart from './RadarChart'
 import HarmonyGauge from './HarmonyGauge'
@@ -8,7 +8,7 @@ import {
   analyzeChord,
   analyzeMode,
 } from '../lib/ljpwEngine'
-import { INTERVALS, CHORDS, MODES } from '../lib/ljpwConstants'
+import { INTERVALS, CHORDS, MODES, PHASE_LABELS } from '../lib/ljpwConstants'
 import {
   DIMENSION_EXPLANATIONS,
   METRIC_EXPLANATIONS,
@@ -16,11 +16,41 @@ import {
   CHORD_INSIGHTS,
   MODE_INSIGHTS,
 } from '../lib/explanationData'
+import { exportAsJSON, exportAsCSV, formatAnalysisForExport } from '../lib/exportUtils'
+
+const STORAGE_KEY = 'ljpw-element-analyzer'
 
 function ElementAnalyzer() {
-  const [elementType, setElementType] = useState('interval')
-  const [selectedElement, setSelectedElement] = useState('major_3rd')
-  const [analysis, setAnalysis] = useState(null)
+  const [elementType, setElementType] = useState(() => {
+    const saved = sessionStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      return JSON.parse(saved).elementType || 'interval'
+    }
+    return 'interval'
+  })
+  const [selectedElement, setSelectedElement] = useState(() => {
+    const saved = sessionStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      return JSON.parse(saved).selectedElement || 'major_3rd'
+    }
+    return 'major_3rd'
+  })
+  const [analysis, setAnalysis] = useState(() => {
+    const saved = sessionStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      return JSON.parse(saved).analysis || null
+    }
+    return null
+  })
+
+  // Save to session storage when state changes
+  useEffect(() => {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({
+      elementType,
+      selectedElement,
+      analysis
+    }))
+  }, [elementType, selectedElement, analysis])
 
   const handleAnalyze = () => {
     let result
@@ -90,6 +120,42 @@ function ElementAnalyzer() {
       case 'mode':
         setSelectedElement('ionian')
         break
+    }
+  }
+
+  const handleExportJSON = () => {
+    if (analysis) {
+      const data = {
+        exportedAt: new Date().toISOString(),
+        appVersion: 'LJPW V8.4',
+        elementType,
+        elementName: analysis.name,
+        dimensions: { love: analysis.L, justice: analysis.J, power: analysis.P, wisdom: analysis.W },
+        metrics: { harmonyIndex: analysis.H, semanticVoltage: analysis.V },
+        dominant: analysis.dominant?.name,
+        phase: analysis.phase?.phase,
+      }
+      exportAsJSON(data, `${elementType}-analysis`)
+    }
+  }
+
+  const handleExportCSV = () => {
+    if (analysis) {
+      const data = {
+        exportedAt: new Date().toISOString(),
+        appVersion: 'LJPW V8.4',
+        elementType,
+        elementName: analysis.name,
+        love: analysis.L,
+        justice: analysis.J,
+        power: analysis.P,
+        wisdom: analysis.W,
+        harmonyIndex: analysis.H,
+        semanticVoltage: analysis.V,
+        dominant: analysis.dominant?.name,
+        phase: analysis.phase?.phase,
+      }
+      exportAsCSV(data, `${elementType}-analysis`)
     }
   }
 
@@ -172,8 +238,25 @@ Modes: Scales that define the tonal character"
               className="phase-badge"
               style={{ background: analysis.phase.color }}
             >
-              {analysis.phase.emoji} {analysis.phase.phase}
+              {analysis.phase.emoji} {PHASE_LABELS[analysis.phase.phase] || analysis.phase.phase}
             </span>
+          </div>
+
+          <div className="export-actions">
+            <button
+              className="export-btn"
+              onClick={handleExportJSON}
+              aria-label="Export analysis as JSON"
+            >
+              <span aria-hidden="true">Export JSON</span>
+            </button>
+            <button
+              className="export-btn"
+              onClick={handleExportCSV}
+              aria-label="Export analysis as CSV"
+            >
+              <span aria-hidden="true">Export CSV</span>
+            </button>
           </div>
 
           <div className="result-grid">

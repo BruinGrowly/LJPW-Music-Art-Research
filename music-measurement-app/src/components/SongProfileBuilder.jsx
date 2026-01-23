@@ -1,20 +1,36 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './SongProfileBuilder.css'
 import RadarChart from './RadarChart'
 import HarmonyGauge from './HarmonyGauge'
 import HelpTooltip, { InfoIcon } from './HelpTooltip'
 import { analyzeSongProfile } from '../lib/ljpwEngine'
-import { KEYS, MODES, GENRES } from '../lib/ljpwConstants'
+import { KEYS, MODES, GENRES, PHASE_LABELS } from '../lib/ljpwConstants'
 import { DIMENSION_EXPLANATIONS, METRIC_EXPLANATIONS } from '../lib/explanationData'
+import { exportAsJSON, exportAsCSV, formatProfileForExport } from '../lib/exportUtils'
+
+const STORAGE_KEY = 'ljpw-song-profile-builder'
 
 function SongProfileBuilder() {
-  const [profile, setProfile] = useState({
-    key: 'C',
-    mode: 'ionian',
-    genre: 'pop',
-    tempo: 120,
+  const [profile, setProfile] = useState(() => {
+    const saved = sessionStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      return parsed.profile || { key: 'C', mode: 'ionian', genre: 'pop', tempo: 120 }
+    }
+    return { key: 'C', mode: 'ionian', genre: 'pop', tempo: 120 }
   })
-  const [analysis, setAnalysis] = useState(null)
+  const [analysis, setAnalysis] = useState(() => {
+    const saved = sessionStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      return JSON.parse(saved).analysis || null
+    }
+    return null
+  })
+
+  // Save to session storage when state changes
+  useEffect(() => {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ profile, analysis }))
+  }, [profile, analysis])
 
   const handleChange = (field, value) => {
     setProfile((prev) => ({ ...prev, [field]: value }))
@@ -23,6 +39,20 @@ function SongProfileBuilder() {
   const handleAnalyze = () => {
     const result = analyzeSongProfile(profile)
     setAnalysis(result)
+  }
+
+  const handleExportJSON = () => {
+    const data = formatProfileForExport(profile, analysis)
+    if (data) {
+      exportAsJSON(data, 'song-profile')
+    }
+  }
+
+  const handleExportCSV = () => {
+    const data = formatProfileForExport(profile, analysis)
+    if (data) {
+      exportAsCSV(data, 'song-profile')
+    }
   }
 
   return (
@@ -110,8 +140,25 @@ function SongProfileBuilder() {
                   className="phase-badge"
                   style={{ background: analysis.phase.color }}
                 >
-                  {analysis.phase.emoji} {analysis.phase.phase}
+                  {analysis.phase.emoji} {PHASE_LABELS[analysis.phase.phase] || analysis.phase.phase}
                 </span>
+              </div>
+
+              <div className="export-actions">
+                <button
+                  className="export-btn"
+                  onClick={handleExportJSON}
+                  aria-label="Export analysis as JSON"
+                >
+                  <span aria-hidden="true">Export JSON</span>
+                </button>
+                <button
+                  className="export-btn"
+                  onClick={handleExportCSV}
+                  aria-label="Export analysis as CSV"
+                >
+                  <span aria-hidden="true">Export CSV</span>
+                </button>
               </div>
 
               <div className="chart-container">
