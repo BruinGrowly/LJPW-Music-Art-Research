@@ -7,6 +7,7 @@ import {
     EARWORM_SCIENCE,
     QUICK_TIPS,
     GLOSSARY,
+    V85_CONCEPTS,
 } from '../lib/explanationData';
 
 function LearnGuide() {
@@ -14,6 +15,7 @@ function LearnGuide() {
 
     const sections = [
         { id: 'intro', label: 'What is LJPW?', icon: '🎯' },
+        { id: 'v85', label: 'V8.5: Reality as Relationship', icon: '🔗' },
         { id: 'dimensions', label: 'The Four Dimensions', icon: '🌟' },
         { id: 'metrics', label: 'Understanding Metrics', icon: '📊' },
         { id: 'phases', label: 'Phase Classifications', icon: '🔮' },
@@ -45,6 +47,7 @@ function LearnGuide() {
 
                 <div className="learn-content">
                     {activeSection === 'intro' && <IntroSection />}
+                    {activeSection === 'v85' && <V85Section />}
                     {activeSection === 'dimensions' && <DimensionsSection />}
                     {activeSection === 'metrics' && <MetricsSection />}
                     {activeSection === 'phases' && <PhasesSection />}
@@ -119,6 +122,66 @@ function IntroSection() {
 
             <div className="next-section">
                 <p>Ready to dive deeper? Explore the sections in the sidebar to learn about each dimension in detail.</p>
+            </div>
+        </div>
+    );
+}
+
+function V85Section() {
+    return (
+        <div className="section-content">
+            <h3>{V85_CONCEPTS.title}</h3>
+            <p className="section-intro highlight">{V85_CONCEPTS.intro}</p>
+
+            <div className="content-block v85-core">
+                <h4>{V85_CONCEPTS.coreInsight.title}</h4>
+                <pre className="v85-content">{V85_CONCEPTS.coreInsight.content}</pre>
+            </div>
+
+            <div className="content-block">
+                <h4>{V85_CONCEPTS.whyItMatters.title}</h4>
+                <pre className="v85-content">{V85_CONCEPTS.whyItMatters.content}</pre>
+            </div>
+
+            <div className="content-block microcosm-box">
+                <h4>{V85_CONCEPTS.theMicrocosm.title}</h4>
+                <pre className="v85-content">{V85_CONCEPTS.theMicrocosm.content}</pre>
+            </div>
+
+            <div className="content-block tips-box">
+                <h4>{V85_CONCEPTS.practicalApplication.title}</h4>
+                <ul>
+                    {V85_CONCEPTS.practicalApplication.tips.map((tip, i) => (
+                        <li key={i}>{tip}</li>
+                    ))}
+                </ul>
+            </div>
+
+            <div className="v85-relationship-grid">
+                <div className="relationship-card love">
+                    <span className="rel-emoji">❤️</span>
+                    <span className="rel-name">Love = Proportion</span>
+                    <span className="rel-music">Melody</span>
+                    <span className="rel-desc">Parts to wholes</span>
+                </div>
+                <div className="relationship-card justice">
+                    <span className="rel-emoji">⚖️</span>
+                    <span className="rel-name">Justice = Extension</span>
+                    <span className="rel-music">Harmony</span>
+                    <span className="rel-desc">Across space</span>
+                </div>
+                <div className="relationship-card power">
+                    <span className="rel-emoji">⚡</span>
+                    <span className="rel-name">Power = Growth</span>
+                    <span className="rel-music">Rhythm</span>
+                    <span className="rel-desc">Across change</span>
+                </div>
+                <div className="relationship-card wisdom">
+                    <span className="rel-emoji">🔮</span>
+                    <span className="rel-name">Wisdom = Distinction</span>
+                    <span className="rel-music">Timbre</span>
+                    <span className="rel-desc">Through information</span>
+                </div>
             </div>
         </div>
     );

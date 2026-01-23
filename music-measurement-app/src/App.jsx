@@ -9,6 +9,7 @@ import GenreCompass from './components/GenreCompass'
 import LoveFrequency from './components/LoveFrequency'
 import LearnGuide from './components/LearnGuide'
 import GenerativeAnalyzer from './components/GenerativeAnalyzer'
+import MusicDesigner from './components/MusicDesigner'
 import ErrorBoundary, { SectionErrorBoundary } from './components/ErrorBoundary'
 import './components/ErrorBoundary.css'
 
@@ -19,7 +20,7 @@ function App() {
   // Initialize from session storage if available
   const [activeTab, setActiveTab] = useState(() => {
     const saved = sessionStorage.getItem(TAB_STORAGE_KEY)
-    return saved || 'audio'
+    return saved || 'designer'
   })
 
   // Persist active tab to session storage
@@ -28,6 +29,7 @@ function App() {
   }, [activeTab])
 
   const tabs = [
+    { id: 'designer', label: 'Music Designer', icon: '✨' },
     { id: 'audio', label: 'Analyze Audio', icon: '🎧' },
     { id: 'analyzer', label: 'Element Analyzer', icon: '🎵' },
     { id: 'profile', label: 'Song Profile', icon: '🎼' },
@@ -63,6 +65,7 @@ function App() {
           aria-label={`${currentTabLabel} section`}
         >
           <SectionErrorBoundary sectionName={currentTabLabel}>
+            {activeTab === 'designer' && <MusicDesigner />}
             {activeTab === 'audio' && <AudioAnalyzer />}
             {activeTab === 'analyzer' && <ElementAnalyzer />}
             {activeTab === 'profile' && <SongProfileBuilder />}

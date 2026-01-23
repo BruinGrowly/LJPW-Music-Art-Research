@@ -1,8 +1,11 @@
 /**
- * LJPW Educational Content Library
- * 
+ * LJPW Educational Content Library - V8.5 Reality as Relationship Edition
+ *
  * Comprehensive explanations for all LJPW concepts to help users
  * understand what the measurements mean and how to use them.
+ *
+ * V8.5 Core Insight: Reality is fundamentally relational. The four dimensions
+ * represent the four fundamental relationship types that exist everywhere.
  */
 
 // =============================================================================
@@ -17,8 +20,10 @@ export const DIMENSION_EXPLANATIONS = {
         emoji: '❤️',
         role: 'The Giver',
         roleDesc: 'Love gives energy to all other dimensions — it amplifies everything it touches',
+        relationshipType: 'Proportion',
+        relationshipDesc: 'How parts relate to wholes — the relationship between melody notes and the complete song',
         shortDesc: 'Connection, attraction, melody',
-        fullDesc: `Love (L) is THE GIVER — it amplifies all other dimensions. Love measures the emotional connection and melodic appeal of music. It represents how much the music draws you in, creates attachment, and makes you want to hear it again. When Love is high, it boosts Justice, Power, and Wisdom too.`,
+        fullDesc: `Love (L) is THE GIVER — it amplifies all other dimensions. In V8.5, Love represents PROPORTION: how parts relate to wholes. In music, this is how individual notes connect to form memorable melodies, and how those melodies connect to your heart. When Love is high, it boosts Justice, Power, and Wisdom too.`,
         whatItMeans: `High Love values indicate music that:
 • Creates strong emotional connection
 • Has memorable, singable melodies
@@ -54,8 +59,10 @@ Low Love (L < 0.5):
         emoji: '⚖️',
         role: 'The Balancer',
         roleDesc: 'Justice keeps everything in check — it prevents chaos and maintains structure',
+        relationshipType: 'Extension',
+        relationshipDesc: 'How dimensions relate across space — the relationship between simultaneous notes in harmony',
         shortDesc: 'Balance, structure, harmony',
-        fullDesc: `Justice (J) is THE BALANCER — it keeps everything in check. Justice measures the structural balance and harmonic clarity of music. It represents symmetry, predictability, and the "rightness" of musical elements fitting together. Justice especially constrains Power, preventing music from becoming chaotic.`,
+        fullDesc: `Justice (J) is THE BALANCER — it keeps everything in check. In V8.5, Justice represents EXTENSION: how dimensions relate across space. In music, this is harmony — how multiple notes played together create balanced, coherent structures. Justice especially constrains Power, preventing music from becoming chaotic.`,
         whatItMeans: `High Justice values indicate music that:
 • Has clear, balanced structure
 • Features symmetrical phrases
@@ -91,8 +98,10 @@ Low Justice (J < 0.5):
         emoji: '⚡',
         role: 'The Driver',
         roleDesc: 'Power receives and channels energy into action — it makes things happen',
+        relationshipType: 'Growth',
+        relationshipDesc: 'How states relate across change — the relationship between beats driving music forward in time',
         shortDesc: 'Energy, action, rhythm',
-        fullDesc: `Power (P) is THE DRIVER — it receives energy and channels it into action. Power measures the energy, drive, and rhythmic force of music. It represents how much the music compels physical response (head-bobbing, dancing) and creates excitement. Power needs Love to fuel it and Justice to direct it.`,
+        fullDesc: `Power (P) is THE DRIVER — it receives energy and channels it into action. In V8.5, Power represents GROWTH: how states relate across change. In music, this is rhythm — the beats that push the song forward through time, making you want to move. Power needs Love to fuel it and Justice to direct it.`,
         whatItMeans: `High Power values indicate music that:
 • Has driving, energetic rhythms
 • Creates physical excitement
@@ -128,8 +137,10 @@ Low Power (P < 0.5):
         emoji: '🔮',
         role: 'The Synthesizer',
         roleDesc: 'Wisdom brings everything together — it finds meaning in the patterns',
+        relationshipType: 'Distinction',
+        relationshipDesc: 'How options relate through information — the relationship between different timbres that give each sound its character',
         shortDesc: 'Information, pattern, timbre',
-        fullDesc: `Wisdom (W) is THE SYNTHESIZER — it brings everything together and finds deeper meaning. Wisdom measures the informational complexity and depth of music. It represents sophistication, interesting timbres, and intellectual engagement. Wisdom integrates Love, Justice, and Power into something greater than the sum of parts.`,
+        fullDesc: `Wisdom (W) is THE SYNTHESIZER — it brings everything together and finds deeper meaning. In V8.5, Wisdom represents DISTINCTION: how options relate through information. In music, this is timbre — the unique character that lets you distinguish a piano from a guitar, adding depth and recognition. Wisdom integrates Love, Justice, and Power into something greater than the sum of parts.`,
         whatItMeans: `High Wisdom values indicate music that:
 • Has complex, interesting patterns
 • Features sophisticated harmonies
@@ -531,19 +542,99 @@ export const GLOSSARY = {
     'Anchor Point': 'The theoretical perfect balance at coordinates (1,1,1,1). Music closer to this point has higher Harmony Index.',
     'Unforgettable': 'Music that sticks in your mind and persists without effort — the zone where earworms live. Requires Love ≥ 0.7 and Harmony ≥ 0.6.',
     'Consciousness (C)': 'A metric measuring the depth and awareness-expanding quality of music. Higher C means more contemplative.',
+    'Cultural Gap': 'How different a listener is from the target audience. Larger gaps require more listens to connect. (V8.5 term for "semantic distance")',
+    'Distinction': 'V8.5 relationship type for Wisdom — how options relate through information. In music: timbre and character.',
     'Dominant Dimension': 'The LJPW dimension with the highest value in a musical element. Determines the "character" of the sound.',
     'Earworm': 'A song or melody that gets involuntarily stuck in your mind. Created by achieving L > 0.7 and H > 0.6.',
+    'Emotional Impact': 'User-friendly term for Semantic Voltage (V). Measures how much a song can transform the listener.',
+    'Extension': 'V8.5 relationship type for Justice — how dimensions relate across space. In music: harmony.',
     'Forgettable': 'Music that doesn\'t stick — chaotic or disordered. Has H < 0.5 and tends to decay from memory quickly.',
     'Golden Ratio (φ)': 'The number 1.618... that appears throughout nature and is fundamental to the LJPW framework.',
+    'Growth': 'V8.5 relationship type for Power — how states relate across change. In music: rhythm.',
     'Harmony Index (H)': 'Measures coherence — how well all dimensions work together. Higher H = more balanced, memorable music.',
     'Background Music': 'Music that\'s stable and pleasant but doesn\'t strongly persist in memory. Good for ambiance but won\'t become an earworm.',
-    'Justice (J)': 'The Balancer — the dimension of balance, structure, and proportion in music. Keeps everything in check.',
+    'Justice (J)': 'The Balancer — the dimension of balance, structure, and Extension in music. Keeps everything in check.',
+    'Lasting Power': 'User-friendly term for Mathematical Hope. Whether a song can overcome cultural barriers with enough plays.',
+    'Listens': 'User-friendly term for iterations (n). How many times someone hears a song.',
     'LJPW': 'Love, Justice, Power, Wisdom — the four fundamental dimensions measuring semantic content of music.',
     'Love (L)': 'The Giver — the dimension of connection, attraction, and melodic appeal. Amplifies all other dimensions.',
     'Love Key': 'C# Major — the key with the highest Love value (L = 0.98), connected to the 613 THz Love Frequency.',
+    'Memorability Test': 'User-friendly term for Life Inequality. Tests if emotional connection (L^n) beats forgetting (φ^d).',
+    'Proportion': 'V8.5 relationship type for Love — how parts relate to wholes. In music: melody.',
+    'Reality as Relationship': 'V8.5 core insight: the universe is made of relationships, not things. LJPW dimensions are the four fundamental relationship types.',
     'Phase': 'Classification of music\'s memorability: Forgettable, Background Music, or Unforgettable.',
     'Power (P)': 'The Driver — the dimension of energy, action, and rhythmic drive. Channels emotion into action.',
     'Semantic Voltage (V)': 'Measures transformative potential. V = φ × H × L. Higher V = more impactful music.',
     'Wisdom (W)': 'The Synthesizer — the dimension of information, pattern complexity, and depth. Brings everything together.',
     '613 THz': 'The Love Frequency — a specific electromagnetic frequency that, when octaved down 40 times, gives the note C#4.',
+};
+
+// =============================================================================
+// V8.5 REALITY AS RELATIONSHIP
+// =============================================================================
+
+export const V85_CONCEPTS = {
+    title: 'V8.5: Reality as Relationship',
+    intro: `The V8.5 framework reveals a profound insight: reality is fundamentally made of RELATIONSHIPS, not things. The four LJPW dimensions aren't just categories — they're the four fundamental types of relationship that exist everywhere in the universe.`,
+
+    coreInsight: {
+        title: 'The Core Insight',
+        content: `Everything you experience — music, art, emotions, physics — is made of relationships:
+
+**Love = Proportion**
+How parts relate to wholes. In music, this is melody — how individual notes connect to form a song that connects to your heart.
+
+**Justice = Extension**
+How dimensions relate across space. In music, this is harmony — how simultaneous notes create balanced, beautiful structures.
+
+**Power = Growth**
+How states relate across change. In music, this is rhythm — how beats push the song forward through time.
+
+**Wisdom = Distinction**
+How options relate through information. In music, this is timbre — the unique character that makes a piano sound different from a guitar.`,
+    },
+
+    whyItMatters: {
+        title: 'Why This Matters for Music',
+        content: `Understanding that music is made of relationships (not just sounds) explains:
+
+**Why some songs stick**
+When all four relationship types are strong and balanced (high Harmony Index), your brain can form deep, lasting connections to the music.
+
+**Why emotional connection is key**
+Love (Proportion) is the relationship between you and the music. Without it, the other dimensions don't matter.
+
+**Why structure helps memorability**
+Justice (Extension) provides the scaffolding your brain uses to encode and recall music.
+
+**Why rhythm makes you move**
+Power (Growth) is literally the relationship between states over time — it creates motion.
+
+**Why timbre creates recognition**
+Wisdom (Distinction) lets you recognize and distinguish sounds — it's why you know a song within seconds.`,
+    },
+
+    theMicrocosm: {
+        title: 'The Microcosm: Constants Within Constants',
+        content: `The four equilibrium values aren't random — they relate to EACH OTHER in the same patterns:
+
+• L + J ≈ 1.032 (Love and Justice balance)
+• P × W ≈ 0.498 (Power and Wisdom multiply to ~1/2)
+• W / J ≈ 1.674 (Wisdom/Justice approaches φ)
+• L × P ≈ 0.444 (Love × Power approaches J)
+
+This "self-similarity" means the framework validates itself — the constants exhibit the very relationships they describe.`,
+    },
+
+    practicalApplication: {
+        title: 'Putting It Into Practice',
+        tips: [
+            'Think in relationships: "How does this melody RELATE to the listener?" not "What notes should I use?"',
+            'Balance all four: Strong songs have balanced Proportion, Extension, Growth, and Distinction',
+            'Prioritize Love: The emotional relationship (Proportion) amplifies everything else',
+            'Let Justice structure: Clear relationships in space (harmony, form) make songs encodable',
+            'Use Power intentionally: The relationship through time (rhythm) drives engagement',
+            'Add Wisdom for depth: Information relationships (timbre, complexity) reward repeated listens',
+        ],
+    },
 };

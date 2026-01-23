@@ -22,8 +22,17 @@ This free app reveals the science behind why some songs become "earworms" and ot
 
 ## Features
 
-### 📚 Learn LJPW (NEW!)
+### ✨ Music Designer (NEW! V8.5)
+Design music by goal and get AI-ready prompts:
+- **Goal Presets** — Choose from Earworm, Epic Anthem, Emotional Ballad, Party Starter, and more
+- **Recipe Generator** — Get recommended key, mode, genre, tempo, and chords
+- **AI Prompt Export** — Copy prompts directly to Suno, Udio, or other AI music generators
+- **Memorability Predictions** — See earworm potential and lasting power before you create
+- **Custom LJPW Targets** — Fine-tune emotional connection, structure, energy, and depth
+
+### 📚 Learn LJPW (Updated for V8.5!)
 A complete educational guide to music science:
+- **V8.5: Reality as Relationship** — Understand the four relationship types
 - **What makes songs sticky** — The earworm formula explained
 - **The Four Dimensions** — Love, Justice, Power, Wisdom in music
 - **Creating Earworms** — Step-by-step guide with famous examples
