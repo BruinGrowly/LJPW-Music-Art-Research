@@ -371,8 +371,8 @@ export function calculateAtmosphere(lessonsCompleted, totalLessons, mysteriesRem
     ratio,
     phase: ratio > 1.1 ? 'awakening' : ratio > 0.9 ? 'stirring' : 'dormant',
 
-    // Visual parameters
-    brightness: 0.2 + normalized * 0.6,
+    // Visual parameters - start with readable brightness, grow with progress
+    brightness: 0.5 + normalized * 0.4,
     saturation: 0.3 + normalized * 0.5,
     particleActivity: normalized,
     soundPresence: normalized,

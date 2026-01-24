@@ -27,7 +27,9 @@
   align-items: center;
   justify-content: center;
   z-index: 100;
-  animation: chapterFade 3s ease-in-out;
+  animation: chapterFade 3s ease-in-out forwards;
+  pointer-events: none;
+  /* Ensure players can interact with content beneath */
 }
 
 .chapter-title {
@@ -44,14 +46,33 @@
 }
 
 @keyframes chapterFade {
-  0%, 80% { opacity: 1; }
-  100% { opacity: 0; pointer-events: none; }
+
+  0%,
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 @keyframes chapterSlide {
-  0% { opacity: 0; transform: translateY(20px); }
-  20%, 80% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  20%,
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Message overlay */
@@ -87,8 +108,15 @@
 }
 
 @keyframes messagePop {
-  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
-  100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 /* Victory overlay */
@@ -145,8 +173,13 @@
 }
 
 @keyframes victoryFade {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Game controls */
@@ -210,13 +243,29 @@
 }
 
 @keyframes stirringPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.5; }
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
 }
 
 @keyframes awakeningPulse {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.02); }
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
 }
 
 /* =============================================================================
