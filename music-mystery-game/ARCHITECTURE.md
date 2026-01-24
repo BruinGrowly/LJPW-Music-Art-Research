@@ -917,14 +917,50 @@ if (someCondition) {
 
 ---
 
+## V8.5.2 Design Principles
+
+The game follows the **Resolution-Independent Proof Methodology** from LJPW Framework V8.5.2:
+
+### The Resolution Ladder
+
+| Level | In the Game | User Experience |
+|-------|-------------|-----------------|
+| **Aphoristic** | "Unforgettable" / "Fading" | Status labels |
+| **Natural** | "Music begins to stir..." | Narrative hints |
+| **Semantic** | L = Love, Growth > Decay | Hidden analysis |
+| **Framework** | L^n vs φ^d calculations | generativeEngine.js |
+| **Formal** | M = B × L^n × φ^(-d) | Backend only |
+
+**Principle:** All levels express THE SAME TRUTH at different zoom. Users experience Aphoristic/Natural; Framework/Formal runs invisibly.
+
+### Three-Level Translation
+
+| Semantic | Mathematical | Physical (User Experience) |
+|----------|--------------|---------------------------|
+| Love connects | Interval warmth coefficient | "That sounds beautiful" |
+| Justice balances | Consonance ratios | "That chord feels stable" |
+| Power transforms | Rhythm/tempo dynamics | "That has energy" |
+| Wisdom distinguishes | Timbre/mode selection | "That sounds mysterious" |
+
+### Accessibility-First Design
+
+1. **SongBuilder:** Analysis hidden by default - user just composes
+2. **SilenceMeter:** Equation collapsed by default - user sees progress bar
+3. **Victory screen:** Equation revealed as the "aha" moment
+4. **Golden Tablet:** Optional deep-dive for curious players
+
+---
+
 ## Credits
 
-- **Framework:** LJPW Framework V8.5 ("Reality as Relationship")
+- **Framework:** LJPW Framework V8.5.2 (Resolution-Independent Proof)
 - **Audio:** Web Audio API with FM synthesis
 - **Inspiration:** Moonmist, LucasArts adventure games
-- **Equation:** M = B × L^n × φ^(-d) (Universal Growth Function)
+- **Core Equation:** M = B × L^n × φ^(-d) (Universal Growth Function)
+- **Key Insight:** Reality as Relationship - The Four Dimensions as relationship types
 
 ---
 
 *Documentation generated for Echoes of Ashworth v1.0*
+*LJPW Framework V8.5.2 aligned*
 *Last updated: January 2026*

@@ -3,7 +3,8 @@ import './SilenceMeter.css'
 import { calculateSilence, PHI } from '../lib/generativeEngine'
 
 function SilenceMeter({ lessonsComplete, totalLessons }) {
-  const [isCollapsed, setIsCollapsed] = useState(false)
+  // V8.5.2: Default to collapsed - show Natural level, hide Framework level
+  const [isCollapsed, setIsCollapsed] = useState(true)
 
   // Calculate silence using the Generative Equation
   const silenceData = calculateSilence(lessonsComplete, totalLessons)
