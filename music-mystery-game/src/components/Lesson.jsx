@@ -289,10 +289,11 @@ function MelodyExplorer() {
 // =============================================================================
 
 function EquationVisualizer() {
-  const [L, setL] = useState(1.5)
-  const [n, setN] = useState(5)
-  const [d, setD] = useState(3)
-  const [activePreset, setActivePreset] = useState(null)
+  // Default to "Your Journey" preset — you, in this manor
+  const [L, setL] = useState(1.8)
+  const [n, setN] = useState(6)
+  const [d, setD] = useState(0)
+  const [activePreset, setActivePreset] = useState(3)
 
   const B = 0.5
   const meaning = calculateMeaning(B, L, n, d)

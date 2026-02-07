@@ -7,7 +7,7 @@ import SongBuilder from './SongBuilder'
 import SilenceMeter from './SilenceMeter'
 import { ROOMS, LESSONS, INITIAL_STATE, STORY } from '../lib/gameData'
 import { playSilenceBreak, playAtmosphere, stopAtmosphere, setMasterVolume, playTransition, playLockedDoor, playVictoryFanfare } from '../lib/midiSynth'
-import { calculateAtmosphere, calculateSilence } from '../lib/generativeEngine'
+import { calculateAtmosphere, calculateSilence, PHI } from '../lib/generativeEngine'
 
 const STORAGE_KEY = 'echoes-of-ashworth-save'
 
@@ -161,17 +161,28 @@ function Game({ audioInitialized }) {
         playSilenceBreak()
       }
 
-      // Show completion message with equation info
+      // Show completion message with live equation values
       const room = Object.values(ROOMS).find(r => r.lesson === lessonId)
       if (room?.onComplete) {
         const newLessonsComplete = gameState.completedLessons.length + 1
-        const newAtmosphere = calculateAtmosphere(newLessonsComplete, totalLessons, totalLessons - newLessonsComplete)
+        const mysteriesLeft = totalLessons - newLessonsComplete
+        const L = 1 + (newLessonsComplete / totalLessons) * 0.8
+        const growth = Math.pow(L, newLessonsComplete)
+        const decay = Math.pow(PHI, mysteriesLeft)
+        const growthStr = growth.toFixed(2)
+        const decayStr = decay.toFixed(2)
+        const symbol = growth > decay * 1.1 ? '>' : growth > decay * 0.9 ? '\u2248' : '<'
+        const equationNote = growth > decay * 1.1
+          ? 'Growth exceeds decay!'
+          : growth > decay * 0.9
+            ? 'Growth meets decay...'
+            : `${mysteriesLeft} more to overcome the silence`
 
         setMessage({
-          text: `${room.onComplete.message} [Growth increased to L^${newLessonsComplete}]`,
+          text: `${room.onComplete.message} [L\u207F=${growthStr} ${symbol} \u03C6\u1D48=${decayStr} \u2014 ${equationNote}]`,
           type: 'success',
         })
-        setTimeout(() => setMessage(null), 5000)
+        setTimeout(() => setMessage(null), 6000)
       }
     }
   }, [gameState.completedLessons, audioInitialized, totalLessons])
