@@ -6,7 +6,7 @@ import Piano from './Piano'
 import SongBuilder from './SongBuilder'
 import SilenceMeter from './SilenceMeter'
 import { ROOMS, LESSONS, INITIAL_STATE, STORY } from '../lib/gameData'
-import { playSilenceBreak, playAtmosphere, stopAtmosphere, setMasterVolume } from '../lib/midiSynth'
+import { playSilenceBreak, playAtmosphere, stopAtmosphere, setMasterVolume, playTransition, playLockedDoor, playVictoryFanfare } from '../lib/midiSynth'
 import { calculateAtmosphere, calculateSilence } from '../lib/generativeEngine'
 
 const STORAGE_KEY = 'echoes-of-ashworth-save'
@@ -123,14 +123,18 @@ function Game({ audioInitialized }) {
     // Check if locked
     if (exit.locked && exit.requires) {
       if (!gameState.completedLessons.includes(exit.requires)) {
+        if (audioInitialized) playLockedDoor()
         setMessage({
-          text: 'This way is not yet open to you. There is more to learn first.',
+          text: exit.lockedMessage || 'This way is not yet open to you. There is more to learn first.',
           type: 'locked',
         })
-        setTimeout(() => setMessage(null), 3000)
+        setTimeout(() => setMessage(null), 5000)
         return
       }
     }
+
+    // Play transition sound
+    if (audioInitialized) playTransition(direction)
 
     setGameState(prev => ({
       ...prev,
@@ -139,7 +143,7 @@ function Game({ audioInitialized }) {
         ? prev.unlockedRooms
         : [...prev.unlockedRooms, exit.to],
     }))
-  }, [currentRoom, gameState.completedLessons])
+  }, [currentRoom, gameState.completedLessons, audioInitialized])
 
   // Handle lesson completion
   const handleLessonComplete = useCallback((lessonId) => {
@@ -176,6 +180,13 @@ function Game({ audioInitialized }) {
   const handleSongComplete = useCallback((analysis) => {
     setShowSongBuilder(false)
     setFinalMelodyAnalysis(analysis)
+
+    // Stop atmosphere and play victory fanfare
+    stopAtmosphere()
+    if (audioInitialized) {
+      setTimeout(() => playVictoryFanfare(), 500)
+    }
+
     setGameState(prev => ({
       ...prev,
       gameComplete: true,
@@ -189,7 +200,7 @@ function Game({ audioInitialized }) {
       text: `The Silence Breaker is complete. ${phaseMessage}`,
       type: 'victory',
     })
-  }, [])
+  }, [audioInitialized])
 
   // Reset game
   const handleReset = useCallback(() => {
@@ -287,9 +298,13 @@ function Game({ audioInitialized }) {
           <div className="victory-content">
             <h2>The Silence is Broken</h2>
             <p>
-              As the final notes of The Silence Breaker fade, the manor transforms.
-              Birds sing outside the windows. The chandelier's crystals tinkle
-              in a breeze that now flows freely through the halls.
+              The crystal mechanism ignites. Your melody spirals upward through the tower, through the manor, through the frozen world outside - and everything it touches awakens.
+            </p>
+            <p>
+              The chandelier's pendants begin to ring, a cascade of crystalline tones. Birds cry out in the garden. The grandfather clock strikes - once, twice - ten years of silence counted in a single, thunderous sequence.
+            </p>
+            <p>
+              And in the tower, where the chalk outline once marked the last place Edmund Ashworth stood, something shifts. Not a ghost. Not a memory. Something more like a chord resolving - a tension that finally, after a decade of waiting, finds its release.
             </p>
 
             {/* Show melody analysis */}
@@ -315,17 +330,13 @@ function Game({ audioInitialized }) {
             )}
 
             <p>
-              You understand now. Edmund Ashworth didn't die. He became part of
-              something larger - the silence itself, waiting for someone to give
-              it voice.
+              You understand now. Edmund Ashworth didn't die. He stepped into the space between the notes - the silence that is not emptiness but potential. He became the question. And your melody? Your melody is the answer.
             </p>
             <p>
-              And you did. Through learning the language of music - intervals,
-              modes, chords, melody - you completed what he started.
+              Through notes, you learned that music begins with a single sound. Through intervals, you learned the vocabulary of emotion. Through modes, you discovered seven colors of feeling. Through chords, you heard voices in conversation. Through melody, you learned to tell a story. And through the equation, you learned that love - compounded through iteration - overcomes any distance.
             </p>
             <p className="final-message">
-              Music is the antidote to silence. Understanding is the key to
-              connection. And you, now, are a musician.
+              The silence was never the enemy. It was the invitation. And you, now, are a musician.
             </p>
 
             {/* Show the equation */}
@@ -335,7 +346,7 @@ function Game({ audioInitialized }) {
                 M = B × L<sup>n</sup> × φ<sup>-d</sup>
               </div>
               <p className="equation-meaning">
-                Meaning grows through Love and iteration, overcoming distance.
+                Meaning grows through Love and iteration, overcoming distance. Your six lessons were the iterations. Your curiosity was the Love. And the silence? It was the distance you crossed.
               </p>
             </div>
 

@@ -117,7 +117,7 @@ function SongBuilder({ gameState, onComplete, onClose }) {
         {/* Mode selector - compact */}
         <div className="mode-selector">
           <div className="mode-chips">
-            {Object.entries(MODES).slice(0, 4).map(([key, m]) => (
+            {Object.entries(MODES).map(([key, m]) => (
               <button
                 key={key}
                 className={`mode-chip ${selectedMode === key ? 'selected' : ''}`}

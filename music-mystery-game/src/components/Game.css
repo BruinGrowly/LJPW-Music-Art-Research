@@ -123,31 +123,34 @@
 .victory-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 10, 18, 0.98);
+  background: radial-gradient(ellipse at center, rgba(15, 15, 30, 0.95) 0%, rgba(10, 10, 18, 0.99) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 200;
-  animation: victoryFade 1s ease-out;
+  animation: victoryFade 2s ease-out;
+  overflow-y: auto;
 }
 
 .victory-content {
-  max-width: 600px;
+  max-width: 650px;
   padding: 3rem;
   text-align: center;
+  animation: victoryContentRise 2.5s ease-out 0.5s backwards;
 }
 
 .victory-content h2 {
   color: var(--accent-gold);
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  text-shadow: 0 0 30px rgba(255, 217, 61, 0.5);
+  text-shadow: 0 0 40px rgba(255, 217, 61, 0.6), 0 0 80px rgba(255, 217, 61, 0.2);
+  animation: victoryGlow 3s ease-in-out infinite;
 }
 
 .victory-content p {
   color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1.05rem;
+  line-height: 1.85;
   margin-bottom: 1.5rem;
 }
 
@@ -158,6 +161,7 @@
   margin-top: 2rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(78, 205, 196, 0.3);
+  text-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
 }
 
 .victory-content button {
@@ -173,12 +177,27 @@
 }
 
 @keyframes victoryFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes victoryContentRise {
   0% {
     opacity: 0;
+    transform: translateY(30px);
   }
-
   100% {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes victoryGlow {
+  0%, 100% {
+    text-shadow: 0 0 40px rgba(255, 217, 61, 0.6), 0 0 80px rgba(255, 217, 61, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 60px rgba(255, 217, 61, 0.8), 0 0 120px rgba(255, 217, 61, 0.3), 0 0 200px rgba(78, 205, 196, 0.15);
   }
 }
 
@@ -245,46 +264,63 @@
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  transition: opacity 2s ease, background 2s ease;
+  transition: opacity 2s ease, background 3s ease;
 }
 
 .atmosphere-overlay.dormant {
-  background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 10, 18, 0.3) 100%);
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(10, 10, 18, 0.5) 100%),
+    radial-gradient(circle at 30% 70%, rgba(26, 10, 26, 0.2) 0%, transparent 50%);
+  animation: dormantBreath 8s ease-in-out infinite;
 }
 
 .atmosphere-overlay.stirring {
-  background: radial-gradient(ellipse at center, rgba(107, 91, 149, 0.1) 0%, transparent 70%);
+  background:
+    radial-gradient(ellipse at center, rgba(107, 91, 149, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 70% 30%, rgba(107, 91, 149, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(78, 205, 196, 0.05) 0%, transparent 40%);
   animation: stirringPulse 4s ease-in-out infinite;
 }
 
 .atmosphere-overlay.awakening {
-  background: radial-gradient(ellipse at center, rgba(78, 205, 196, 0.15) 0%, transparent 60%);
+  background:
+    radial-gradient(ellipse at center, rgba(78, 205, 196, 0.15) 0%, transparent 55%),
+    radial-gradient(circle at 80% 20%, rgba(255, 217, 61, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 15% 75%, rgba(123, 237, 159, 0.10) 0%, transparent 45%);
   animation: awakeningPulse 3s ease-in-out infinite;
 }
 
+@keyframes dormantBreath {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.4; }
+}
+
 @keyframes stirringPulse {
-
-  0%,
-  100% {
-    opacity: 0.3;
+  0%, 100% {
+    opacity: 0.4;
+    filter: hue-rotate(0deg);
   }
-
   50% {
-    opacity: 0.5;
+    opacity: 0.6;
+    filter: hue-rotate(10deg);
   }
 }
 
 @keyframes awakeningPulse {
-
-  0%,
-  100% {
-    opacity: 0.4;
+  0%, 100% {
+    opacity: 0.5;
     transform: scale(1);
+    filter: hue-rotate(0deg) brightness(1);
   }
-
-  50% {
+  33% {
+    opacity: 0.7;
+    transform: scale(1.01);
+    filter: hue-rotate(5deg) brightness(1.05);
+  }
+  66% {
     opacity: 0.6;
     transform: scale(1.02);
+    filter: hue-rotate(-5deg) brightness(1.02);
   }
 }
 
