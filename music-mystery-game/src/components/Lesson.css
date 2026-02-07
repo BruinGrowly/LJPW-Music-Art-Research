@@ -372,6 +372,41 @@
   text-align: center;
 }
 
+.eq-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.eq-preset-btn {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.7rem;
+  background: rgba(107, 91, 149, 0.2);
+  color: var(--text-secondary);
+  border: 1px solid rgba(107, 91, 149, 0.3);
+  border-radius: 20px;
+}
+
+.eq-preset-btn:hover {
+  background: rgba(107, 91, 149, 0.35);
+  color: var(--text-primary);
+}
+
+.eq-preset-btn.active {
+  background: rgba(78, 205, 196, 0.2);
+  border-color: var(--accent-hope);
+  color: var(--accent-hope);
+}
+
+.eq-preset-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
 .equation-formula {
   font-family: var(--font-mono);
   font-size: 1.3rem;

@@ -82,22 +82,15 @@ export const ROOMS = {
     atmosphere: 'mysterious',
 
     description: `
-      The great doors of Ashworth Manor close behind you with an almost apologetic whisper.
+      The great doors of Ashworth Manor close behind you with an almost apologetic whisper - and then the silence arrives. Not gradually, but all at once, like stepping into deep water. It presses against your eardrums, fills the spaces between your thoughts.
 
-      Before you stretches a grand entrance hall, frozen in time. A crystal chandelier
-      hangs motionless - not a single pendant stirs. Portraits line the walls: generations
-      of Ashworths gazing down with expressions you cannot quite read.
+      Before you stretches a grand entrance hall, frozen mid-breath. A crystal chandelier hangs above, its hundreds of pendants arranged in twelve groups - like the twelve tones of a piano - each one perfectly, impossibly still. No draft. No tremor. Not even the memory of movement.
 
-      The silence here is not mere absence of sound. It has presence. Weight. It presses
-      against your ears like deep water.
+      Portraits line the walls: generations of Ashworths gazing down. A cellist. A singer. A conductor. And at the end, Edmund himself - captured not performing but listening, his head tilted toward something just beyond the edge of hearing.
 
-      On a small table near the door, you notice a framed photograph: a man at a piano,
-      his hands poised above the keys, his face captured in a moment of profound concentration.
+      On a small table near the door, a framed photograph: Ashworth at a piano, hands poised above the keys, his face caught in a moment of profound concentration. The night before he vanished. Written on the back, in faded ink that you can just make out: words about the foundation of all music.
 
-      Edmund Ashworth. The night before he disappeared.
-
-      Three doorways lead deeper into the manor: a music room to the east, a library
-      to the west, and stairs ascending into shadow.
+      Three doorways lead deeper into the manor: a music room to the east, a library to the west, and stairs ascending into shadow.
     `,
 
     interactables: {
@@ -144,8 +137,8 @@ export const ROOMS = {
 
     exits: {
       east: { to: 'music_room', description: 'The music room awaits.' },
-      west: { to: 'library', description: 'The library doors are slightly ajar.', locked: true, requires: 'notes' },
-      up: { to: 'upstairs_hall', description: 'Stairs ascend into shadow.', locked: true, requires: 'modes' },
+      west: { to: 'library', description: 'The library doors are slightly ajar.', locked: true, requires: 'intervals', lockedMessage: 'The library doors resist. You sense they respond to understanding, not force. Perhaps the music room holds a key - not of metal, but of knowledge.' },
+      up: { to: 'upstairs_hall', description: 'Stairs ascend into shadow.', locked: true, requires: 'chords', lockedMessage: 'The stairway hums with a faint vibration when you approach, but the steps will not bear your weight. You need deeper understanding - not just melody and scale, but harmony. Multiple voices, sounding together.' },
     },
   },
 
@@ -159,23 +152,15 @@ export const ROOMS = {
     atmosphere: 'mysterious',
 
     description: `
-      The music room is a shrine to sound trapped in silence.
+      The music room is a shrine to sound trapped in amber.
 
-      A grand piano dominates the space, its lid open as if awaiting a performer
-      who will never return. Sheet music lies scattered across the floor - pages
-      torn from what must have been dozens of compositions.
+      A grand piano dominates the space, its lid yawning open like a mouth mid-sentence. The hammers inside are frozen between strike and string - you can see one, suspended, as if someone was playing a note at the exact moment everything stopped. Sheet music lies scattered across the floor like fallen leaves, each page annotated in hurried ink.
 
-      Along one wall, a collection of instruments hangs in glass cases: a violin,
-      a flute, a guitar. Each perfectly preserved. Each perfectly mute.
+      Along one wall, instruments hang in glass cases: a violin whose strings still hold the tension of their last tuning, a flute with condensation on its lip plate as if someone breathed through it moments ago, a guitar with a pick resting between the third and fourth strings. Each perfectly preserved. Each aching to speak.
 
-      But it's the piano that draws you. Even silent, it seems to pulse with
-      potential. The keys are ivory and ebony, eighty-eight possibilities
-      waiting to break this terrible quiet.
+      But it's the piano that pulls you. Even silent, it radiates something - potential, perhaps, or patience. Eighty-eight keys. Eighty-eight possibilities, waiting for the courage to sound. The ivory is worn smooth where Ashworth's fingers once rested, the ghost of ten thousand hours of practice pressed into the surface.
 
-      On the music stand, a single page remains: not music, but words.
-      "The distance between two notes is called an interval. Each interval
-      has its own emotional character. Learn these distances, and you learn
-      the vocabulary of feeling."
+      On the music stand, one page remains: not music, but a question. "The distance between two notes is called an interval. Each interval has its own emotional character. Learn these distances, and you learn the vocabulary of feeling."
     `,
 
     lesson: 'intervals',
@@ -339,7 +324,7 @@ export const ROOMS = {
 
     exits: {
       east: { to: 'entrance', description: 'Return to the entrance hall.' },
-      north: { to: 'conservatory', description: 'A door leads to what appears to be a conservatory.', locked: true, requires: 'modes' },
+      north: { to: 'conservatory', description: 'A door leads to what appears to be a conservatory.', locked: true, requires: 'modes', lockedMessage: 'The conservatory door is sealed with seven locks, each a different color. You recognize them now - the seven modes. You must understand all seven emotional palettes before this door will yield.' },
     },
 
     onComplete: {
@@ -523,7 +508,7 @@ export const ROOMS = {
     exits: {
       down: { to: 'entrance', description: 'Descend to the entrance hall.' },
       east: { to: 'study', description: 'Enter the composer\'s study.' },
-      north: { to: 'tower', description: 'The tower awaits.', locked: true, requires: 'melody' },
+      north: { to: 'tower', description: 'The tower awaits.', locked: true, requires: 'melody', lockedMessage: 'The tower\'s musical lock awaits its sequence. Seven notes that answer the silence\'s question. You must first understand melody - the thread that connects all music.' },
     },
   },
 
@@ -987,42 +972,29 @@ export const LESSONS = {
     title: 'The Mathematics of Memory',
     room: 'tower',
     content: `
-      Edmund Ashworth discovered something profound: memorable music follows
-      a mathematical pattern. He called it the GENERATIVE EQUATION:
+      Edmund Ashworth discovered something profound: memorable music follows a mathematical pattern. He called it the GENERATIVE EQUATION:
 
       M = B × L^n × φ^(-d)
 
       WHERE:
-      • M = MEANING - How memorable and impactful the melody becomes
-      • B = BRICK - The initial "seed" of impact (your composition's foundation)
-      • L = LOVE - The emotional coefficient (1.0 to 2.0 range)
-      • n = ITERATIONS - How many times it's heard/repeated
-      • φ = PHI - The Golden Ratio (1.618...)
-      • d = DISTANCE - Cultural/contextual gap to overcome
+      M = MEANING (how memorable the melody becomes)
+      B = BRICK (the initial seed - your composition's foundation)
+      L = LOVE (emotional coefficient, how much heart it has, 1.0-2.0)
+      n = ITERATIONS (how many times it's heard or repeated)
+      φ = PHI (the Golden Ratio: 1.618...)
+      d = DISTANCE (the gap the melody must cross to reach the listener)
 
       THE LIFE INEQUALITY: L^n > φ^d
 
-      This is the key to memorability. Your melody GROWS through Love
-      and repetition (L^n), but must overcome natural DECAY (φ^d).
+      Think about what you've done in this manor. Your first lesson - notes - was a small Brick, a tiny seed of understanding. But each new concept compounded the last. Intervals gave notes meaning. Modes gave intervals emotional color. Chords gave modes depth. Melody gave chords narrative.
 
-      • UNFORGETTABLE: When growth exceeds decay, the melody persists forever
-      • STABLE: When they're balanced, the melody holds steady
-      • FORGETTABLE: When decay wins, the melody fades into nothing
+      You have been living the equation. Each lesson was an iteration. Your growing understanding is Love - the force that compounds. And the silence? The silence was Distance - the decay you had to overcome.
 
-      HOW TO COMPOSE MEMORABLY:
+      After six lessons, your understanding has grown exponentially. That's L^n at work. Meanwhile, the silence (φ^d) has been shrinking with each mystery you solved.
 
-      HIGH LOVE (L) comes from:
-      • Major 3rds and 6ths (intervals of emotional warmth)
-      • Perfect 5ths and 4ths (stability and consonance)
-      • Resolved tension (movement that feels satisfying)
+      This is why some melodies get stuck in your head forever: their Love coefficient is high enough that each listen (iteration) grows the memory faster than time (distance) can erode it. They become AUTOPOIETIC - self-sustaining, feeding their own growth.
 
-      LOW LOVE comes from:
-      • Too much dissonance without resolution
-      • Intervals that feel cold or unresolved
-      • Lack of emotional contour
-
-      The silence you've felt in this manor? It represents maximum decay
-      with zero growth. Music - emotional, living music - is the antidote.
+      The silence in this manor? Maximum decay with zero growth. Music - living, emotional music composed with heart - is the only antidote.
 
       Your melody must GROW FASTER THAN IT FADES.
     `,

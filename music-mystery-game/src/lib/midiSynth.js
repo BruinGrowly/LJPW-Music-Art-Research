@@ -467,6 +467,101 @@ export function playSilenceBreak() {
 }
 
 /**
+ * Play a room transition sound - a soft, atmospheric whoosh
+ * Direction affects the character: 'up' ascends, 'down' descends, others are lateral
+ */
+export function playTransition(direction = 'east') {
+  if (!initialized) {
+    if (!initAudio()) return
+  }
+
+  const time = audioContext.currentTime
+
+  if (direction === 'up') {
+    createPadVoice(NOTE_FREQUENCIES['C3'], time, 0.6, 0.08)
+    createPadVoice(NOTE_FREQUENCIES['E3'], time + 0.1, 0.5, 0.07)
+    createPadVoice(NOTE_FREQUENCIES['G3'], time + 0.2, 0.4, 0.06)
+  } else if (direction === 'down') {
+    createPadVoice(NOTE_FREQUENCIES['G3'], time, 0.6, 0.08)
+    createPadVoice(NOTE_FREQUENCIES['E3'], time + 0.1, 0.5, 0.07)
+    createPadVoice(NOTE_FREQUENCIES['C3'], time + 0.2, 0.4, 0.06)
+  } else {
+    createPadVoice(NOTE_FREQUENCIES['D3'], time, 0.5, 0.06)
+    createPadVoice(NOTE_FREQUENCIES['A3'], time + 0.15, 0.4, 0.05)
+  }
+}
+
+/**
+ * Play a locked door sound - a dull thud with minor 2nd dissonance
+ */
+export function playLockedDoor() {
+  if (!initialized) {
+    if (!initAudio()) return
+  }
+
+  const time = audioContext.currentTime
+
+  createFMVoice(NOTE_FREQUENCIES['E2'], time, 0.3, {
+    carrierType: 'triangle',
+    modulatorRatio: 1,
+    modulationIndex: 0.8,
+    attack: 0.005,
+    decay: 0.15,
+    sustain: 0.1,
+    release: 0.15,
+    volume: 0.12,
+  })
+  createFMVoice(NOTE_FREQUENCIES['F2'], time + 0.05, 0.25, {
+    carrierType: 'triangle',
+    modulatorRatio: 1,
+    modulationIndex: 0.5,
+    attack: 0.01,
+    decay: 0.1,
+    sustain: 0.1,
+    release: 0.1,
+    volume: 0.08,
+  })
+}
+
+/**
+ * Play the victory fanfare - a climactic ascending sequence
+ * resolving into a warm major chord
+ */
+export function playVictoryFanfare() {
+  if (!initialized) {
+    if (!initAudio()) return
+  }
+
+  const time = audioContext.currentTime
+
+  // Phase 1: Ascending arpeggio building anticipation
+  const arpeggioNotes = ['C3', 'E3', 'G3', 'C4', 'E4', 'G4', 'B4', 'C5']
+  arpeggioNotes.forEach((note, i) => {
+    createPianoVoice(NOTE_FREQUENCIES[note], time + i * 0.18, 1.2, 0.2 + i * 0.025)
+  })
+
+  // Phase 2: Golden resolution chord
+  setTimeout(() => {
+    const t = audioContext.currentTime
+    createPadVoice(NOTE_FREQUENCIES['C3'], t, 4, 0.15)
+    createPadVoice(NOTE_FREQUENCIES['E3'], t, 4, 0.12)
+    createPadVoice(NOTE_FREQUENCIES['G3'], t, 4, 0.12)
+    createPadVoice(NOTE_FREQUENCIES['C4'], t, 4, 0.10)
+    createPadVoice(NOTE_FREQUENCIES['D4'], t, 3.5, 0.06)
+    createPadVoice(NOTE_FREQUENCIES['E4'], t, 3, 0.08)
+    createPadVoice(NOTE_FREQUENCIES['G4'], t, 3, 0.06)
+  }, 1500)
+
+  // Phase 3: Final bell-like tones - the silence breaking
+  setTimeout(() => {
+    const t = audioContext.currentTime
+    createPianoVoice(NOTE_FREQUENCIES['C5'], t, 2, 0.3)
+    createPianoVoice(NOTE_FREQUENCIES['G5'], t + 0.1, 1.8, 0.15)
+    createPianoVoice(NOTE_FREQUENCIES['C6'], t + 0.2, 1.5, 0.10)
+  }, 3500)
+}
+
+/**
  * Get note frequency for display purposes
  */
 export function getNoteFrequency(noteName) {
@@ -507,6 +602,9 @@ export default {
   playAtmosphere,
   stopAtmosphere,
   playSilenceBreak,
+  playTransition,
+  playLockedDoor,
+  playVictoryFanfare,
   getNoteFrequency,
   getNoteNames,
   setMasterVolume,

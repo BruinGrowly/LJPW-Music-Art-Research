@@ -292,14 +292,46 @@ function EquationVisualizer() {
   const [L, setL] = useState(1.5)
   const [n, setN] = useState(5)
   const [d, setD] = useState(3)
+  const [activePreset, setActivePreset] = useState(null)
 
   const B = 0.5
   const meaning = calculateMeaning(B, L, n, d)
   const lifeCheck = checkLifeInequality(L, n, d)
 
+  const presets = [
+    { name: 'Learning Piano', L: 1.3, n: 10, d: 5, desc: 'Practice compounds - after enough sessions, you WANT to play' },
+    { name: 'Hit Song', L: 1.6, n: 5, d: 2, desc: 'High Love, low distance - unforgettable after just a few listens' },
+    { name: 'Forgotten Tune', L: 1.05, n: 3, d: 7, desc: 'Low Love, high distance - the melody fades before it takes hold' },
+    { name: 'Your Journey', L: 1.8, n: 6, d: 0, desc: 'You, in this manor - six lessons, growing exponentially' },
+  ]
+
+  const applyPreset = (preset, i) => {
+    setL(preset.L)
+    setN(preset.n)
+    setD(preset.d)
+    setActivePreset(i)
+  }
+
   return (
     <div className="equation-visualizer">
-      <p className="instruction">Adjust the sliders to see how the Generative Equation works.</p>
+      <p className="instruction">Try the presets or adjust the sliders to see the Generative Equation in action.</p>
+
+      <div className="eq-presets">
+        {presets.map((preset, i) => (
+          <button
+            key={i}
+            className={`eq-preset-btn ${activePreset === i ? 'active' : ''}`}
+            onClick={() => applyPreset(preset, i)}
+            title={preset.desc}
+          >
+            {preset.name}
+          </button>
+        ))}
+      </div>
+
+      {activePreset !== null && (
+        <p className="eq-preset-desc">{presets[activePreset].desc}</p>
+      )}
 
       <div className="equation-formula">
         <span>M = B × L<sup>n</sup> × φ<sup>-d</sup></span>
@@ -311,21 +343,21 @@ function EquationVisualizer() {
             <span className="slider-label">L (Love)</span>
             <span className="slider-value">{L.toFixed(2)}</span>
           </label>
-          <input type="range" min="1" max="2" step="0.05" value={L} onChange={e => setL(parseFloat(e.target.value))} />
+          <input type="range" min="1" max="2" step="0.05" value={L} onChange={e => { setL(parseFloat(e.target.value)); setActivePreset(null) }} />
         </div>
         <div className="eq-slider-row">
           <label>
-            <span className="slider-label">n (Listens)</span>
+            <span className="slider-label">n (Iterations)</span>
             <span className="slider-value">{n}</span>
           </label>
-          <input type="range" min="1" max="20" step="1" value={n} onChange={e => setN(parseInt(e.target.value))} />
+          <input type="range" min="1" max="20" step="1" value={n} onChange={e => { setN(parseInt(e.target.value)); setActivePreset(null) }} />
         </div>
         <div className="eq-slider-row">
           <label>
             <span className="slider-label">d (Distance)</span>
             <span className="slider-value">{d}</span>
           </label>
-          <input type="range" min="0" max="10" step="1" value={d} onChange={e => setD(parseInt(e.target.value))} />
+          <input type="range" min="0" max="10" step="1" value={d} onChange={e => { setD(parseInt(e.target.value)); setActivePreset(null) }} />
         </div>
       </div>
 
