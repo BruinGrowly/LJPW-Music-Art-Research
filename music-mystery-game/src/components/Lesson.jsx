@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './Lesson.css'
 import { INTERVALS, MODES, CHORDS } from '../lib/musicTheory'
 import { playNote, playInterval, playScale, playChord, buildChord } from '../lib/midiSynth'
+import { PHI, calculateMeaning, checkLifeInequality } from '../lib/generativeEngine'
 
 function Lesson({ lesson, onComplete, onClose }) {
   const [showInteractive, setShowInteractive] = useState(false)
@@ -34,6 +35,7 @@ function Lesson({ lesson, onComplete, onClose }) {
               {lesson.interactive === 'mode_explorer' && <ModeExplorer />}
               {lesson.interactive === 'chord_builder' && <ChordExplorer />}
               {lesson.interactive === 'melody_builder' && <MelodyExplorer />}
+              {lesson.interactive === 'equation_visualizer' && <EquationVisualizer />}
               {lesson.interactive === 'piano' && <SimplePiano />}
             </div>
           )}
@@ -277,6 +279,69 @@ function MelodyExplorer() {
             <p>{melody.description}</p>
           </div>
         ))}
+      </div>
+    </div>
+  )
+}
+
+// =============================================================================
+// EQUATION VISUALIZER
+// =============================================================================
+
+function EquationVisualizer() {
+  const [L, setL] = useState(1.5)
+  const [n, setN] = useState(5)
+  const [d, setD] = useState(3)
+
+  const B = 0.5
+  const meaning = calculateMeaning(B, L, n, d)
+  const lifeCheck = checkLifeInequality(L, n, d)
+
+  return (
+    <div className="equation-visualizer">
+      <p className="instruction">Adjust the sliders to see how the Generative Equation works.</p>
+
+      <div className="equation-formula">
+        <span>M = B × L<sup>n</sup> × φ<sup>-d</sup></span>
+      </div>
+
+      <div className="eq-sliders">
+        <div className="eq-slider-row">
+          <label>
+            <span className="slider-label">L (Love)</span>
+            <span className="slider-value">{L.toFixed(2)}</span>
+          </label>
+          <input type="range" min="1" max="2" step="0.05" value={L} onChange={e => setL(parseFloat(e.target.value))} />
+        </div>
+        <div className="eq-slider-row">
+          <label>
+            <span className="slider-label">n (Listens)</span>
+            <span className="slider-value">{n}</span>
+          </label>
+          <input type="range" min="1" max="20" step="1" value={n} onChange={e => setN(parseInt(e.target.value))} />
+        </div>
+        <div className="eq-slider-row">
+          <label>
+            <span className="slider-label">d (Distance)</span>
+            <span className="slider-value">{d}</span>
+          </label>
+          <input type="range" min="0" max="10" step="1" value={d} onChange={e => setD(parseInt(e.target.value))} />
+        </div>
+      </div>
+
+      <div className="eq-result">
+        <div className="eq-inequality">
+          <span className="eq-growth">L<sup>{n}</sup> = {lifeCheck.growth}</span>
+          <span className="eq-vs" style={{ color: lifeCheck.color }}>
+            {lifeCheck.phase === 'AUTOPOIETIC' ? '>' : lifeCheck.phase === 'HOMEOSTATIC' ? '≈' : '<'}
+          </span>
+          <span className="eq-decay">φ<sup>{d}</sup> = {lifeCheck.decay}</span>
+        </div>
+        <div className="eq-phase" style={{ color: lifeCheck.color }}>
+          {lifeCheck.emoji} {lifeCheck.userPhase}
+        </div>
+        <p className="eq-verdict">{lifeCheck.verdict}</p>
+        <p className="eq-meaning">Meaning (M) = {meaning.toFixed(4)}</p>
       </div>
     </div>
   )

@@ -367,6 +367,99 @@
   color: #666;
 }
 
+/* Equation Visualizer */
+.equation-visualizer {
+  text-align: center;
+}
+
+.equation-formula {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--accent-gold);
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.eq-sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.eq-slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.eq-slider-row label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.slider-value {
+  font-family: var(--font-mono);
+  color: var(--accent-hope);
+}
+
+.eq-slider-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent-mystery);
+}
+
+.eq-result {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.eq-inequality {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.eq-growth {
+  color: var(--accent-hope);
+}
+
+.eq-decay {
+  color: var(--accent-mystery);
+}
+
+.eq-vs {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.eq-phase {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.eq-verdict {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.eq-meaning {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
 /* Complete button */
 .complete-btn {
   display: block;

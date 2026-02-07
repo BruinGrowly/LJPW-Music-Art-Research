@@ -409,7 +409,7 @@ export function playAtmosphere(moodOrIntensity = 'mysterious') {
       }
     } else if (mood === 'tension') {
       // Dissonant, unsettling
-      const notes = ['D#3', 'A3', 'E4', 'Bb3']
+      const notes = ['D#3', 'A3', 'E4', 'A#3']
       const note = notes[Math.floor(Math.random() * notes.length)]
       createPadVoice(NOTE_FREQUENCIES[note], time, 5, baseVolume * 0.7)
     }
