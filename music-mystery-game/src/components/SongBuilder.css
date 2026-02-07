@@ -19,7 +19,7 @@
 }
 
 .song-builder-content {
-  background: var(--bg-card);
+  background: var(--bg-medium);
   border: 1px solid rgba(107, 91, 149, 0.3);
   border-radius: 16px;
   padding: 2rem;

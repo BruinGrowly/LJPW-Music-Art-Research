@@ -113,7 +113,7 @@ export const ROOMS = {
           begins with a single sound. Before harmony, before melody - there is the note."
         `,
         teaches: 'notes',
-        unlocks: 'lesson_notes',
+        unlocks: 'notes',
       },
       portraits: {
         name: 'The Portraits',
@@ -144,8 +144,8 @@ export const ROOMS = {
 
     exits: {
       east: { to: 'music_room', description: 'The music room awaits.' },
-      west: { to: 'library', description: 'The library doors are slightly ajar.', locked: true, requires: 'lesson_notes' },
-      up: { to: 'upstairs_hall', description: 'Stairs ascend into shadow.', locked: true, requires: 'lesson_modes' },
+      west: { to: 'library', description: 'The library doors are slightly ajar.', locked: true, requires: 'notes' },
+      up: { to: 'upstairs_hall', description: 'Stairs ascend into shadow.', locked: true, requires: 'modes' },
     },
   },
 
@@ -209,7 +209,13 @@ export const ROOMS = {
           the devil's own interval, demanding resolution..."
 
           These are lessons. He was teaching someone. But who?
+
+          As you read further, you begin to understand: each annotation describes
+          the emotional character of the DISTANCE between two notes. These distances
+          are called intervals - and they are the vocabulary of all music.
         `,
+        teaches: 'intervals',
+        unlocks: 'intervals',
       },
       instruments: {
         name: 'The Instrument Collection',
@@ -234,7 +240,7 @@ export const ROOMS = {
 
     onComplete: {
       message: 'The piano keys glow faintly as you master the intervals. The silence loosens its grip, just slightly.',
-      unlocks: ['lesson_intervals'],
+      unlocks: ['intervals'],
       reveals: 'library',
     },
   },
@@ -290,7 +296,7 @@ export const ROOMS = {
           each: "The song requires understanding of ALL seven emotional states."
         `,
         teaches: 'modes',
-        unlocks: 'lesson_modes',
+        unlocks: 'modes',
       },
       tapestry: {
         name: 'The Seven Musicians',
@@ -333,12 +339,12 @@ export const ROOMS = {
 
     exits: {
       east: { to: 'entrance', description: 'Return to the entrance hall.' },
-      north: { to: 'conservatory', description: 'A door leads to what appears to be a conservatory.', locked: true, requires: 'lesson_modes' },
+      north: { to: 'conservatory', description: 'A door leads to what appears to be a conservatory.', locked: true, requires: 'modes' },
     },
 
     onComplete: {
       message: 'As you internalize the seven modes, you feel the manor shift almost imperceptibly. Somewhere, a clock begins to tick.',
-      unlocks: ['lesson_modes'],
+      unlocks: ['modes'],
       reveals: 'conservatory',
     },
   },
@@ -394,7 +400,7 @@ export const ROOMS = {
           in different ways. This is how composers paint with sound.
         `,
         teaches: 'chords',
-        unlocks: 'lesson_chords',
+        unlocks: 'chords',
       },
       quartet_stands: {
         name: 'The String Quartet Arrangement',
@@ -442,7 +448,7 @@ export const ROOMS = {
 
     onComplete: {
       message: 'The tuning forks continue to resonate. In the garden, a flower opens.',
-      unlocks: ['lesson_chords'],
+      unlocks: ['chords'],
       reveals: 'upstairs_hall',
     },
   },
@@ -510,14 +516,14 @@ export const ROOMS = {
           what sequence to play.
         `,
         locked: true,
-        requires: 'lesson_melody',
+        requires: 'melody',
       },
     },
 
     exits: {
       down: { to: 'entrance', description: 'Descend to the entrance hall.' },
       east: { to: 'study', description: 'Enter the composer\'s study.' },
-      north: { to: 'tower', description: 'The tower awaits.', locked: true, requires: 'lesson_melody' },
+      north: { to: 'tower', description: 'The tower awaits.', locked: true, requires: 'melody' },
     },
   },
 
@@ -602,7 +608,7 @@ export const ROOMS = {
           find their way home.
         `,
         teaches: 'melody',
-        unlocks: 'lesson_melody',
+        unlocks: 'melody',
       },
       photographs: {
         name: 'The Photographs',
@@ -636,7 +642,7 @@ export const ROOMS = {
 
     onComplete: {
       message: 'You understand melody now. Not just as notes, but as narrative. The tower door mechanism glows faintly.',
-      unlocks: ['lesson_melody', 'tower'],
+      unlocks: ['melody', 'tower'],
     },
   },
 
@@ -713,7 +719,7 @@ export const ROOMS = {
           Your melody must GROW faster than it FADES."
         `,
         teaches: 'generative',
-        unlocks: 'lesson_generative',
+        unlocks: 'generative',
       },
       crystal_mechanism: {
         name: 'The Crystal Mechanism',

@@ -249,9 +249,9 @@ function SongBuilder({ gameState, onComplete, onClose }) {
                 </div>
 
                 <div className="analysis-formula">
-                  <span>L<sup>{10}</sup>={analysis.lifeInequality?.growth}</span>
+                  <span>L<sup>n</sup>={analysis.lifeInequality?.growth}</span>
                   <span className="vs">{analysis.lifeInequality?.phase === 'AUTOPOIETIC' ? '>' : analysis.lifeInequality?.phase === 'HOMEOSTATIC' ? '≈' : '<'}</span>
-                  <span>φ<sup>3</sup>={analysis.lifeInequality?.decay}</span>
+                  <span>φ<sup>d</sup>={analysis.lifeInequality?.decay}</span>
                 </div>
 
                 {analysis.feedback && analysis.feedback.length > 0 && (
