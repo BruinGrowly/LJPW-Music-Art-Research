@@ -8,7 +8,6 @@ function SongBuilder({ gameState, onComplete, onClose }) {
   const [melody, setMelody] = useState([])
   const [selectedMode, setSelectedMode] = useState('ionian')
   const [isPlaying, setIsPlaying] = useState(false)
-  const [showAnalysis, setShowAnalysis] = useState(false)
   const [analysis, setAnalysis] = useState(null)
 
   // Available notes based on selected mode
@@ -191,6 +190,44 @@ function SongBuilder({ gameState, onComplete, onClose }) {
           </button>
         </div>
 
+        {/* Live equation bar - always visible when there are 2+ notes */}
+        {analysis && analysis.valid && (
+          <div className="live-equation-bar">
+            <div className="equation-live-row">
+              <span className="live-L" style={{ color: getMelodyColor() }}>
+                L = {analysis.generative.L.toFixed(2)}
+              </span>
+              <div className="live-inequality">
+                <span className="live-growth">L<sup>n</sup>={analysis.lifeInequality?.growth}</span>
+                <span className="live-vs" style={{ color: analysis.lifeInequality?.color }}>
+                  {analysis.lifeInequality?.phase === 'AUTOPOIETIC' ? '>' : analysis.lifeInequality?.phase === 'HOMEOSTATIC' ? '≈' : '<'}
+                </span>
+                <span className="live-decay">φ<sup>d</sup>={analysis.lifeInequality?.decay}</span>
+              </div>
+              <span className="live-phase" style={{ color: analysis.lifeInequality?.color }}>
+                {analysis.lifeInequality?.emoji} {analysis.lifeInequality?.userPhase}
+              </span>
+            </div>
+            <div className="live-meter-row">
+              <div className="live-meter">
+                <div
+                  className="live-meter-fill"
+                  style={{
+                    width: `${analysis.memorabilityScore}%`,
+                    backgroundColor: getMelodyColor()
+                  }}
+                />
+              </div>
+              <span className="live-score">{analysis.memorabilityScore}%</span>
+            </div>
+            {analysis.feedback && analysis.feedback.length > 0 && (
+              <p className="live-tip" style={{ color: analysis.feedback[0].type === 'success' ? 'var(--accent-hope)' : analysis.feedback[0].type === 'warning' ? 'var(--accent-warning)' : 'var(--text-muted)' }}>
+                {analysis.feedback[0].message}
+              </p>
+            )}
+          </div>
+        )}
+
         {/* Completion section */}
         <div className="completion-section">
           {canComplete ? (
@@ -211,60 +248,6 @@ function SongBuilder({ gameState, onComplete, onClose }) {
             </p>
           )}
         </div>
-
-        {/* Analysis toggle - small, optional */}
-        {analysis && analysis.valid && (
-          <div className="analysis-section">
-            <button
-              className="analysis-toggle"
-              onClick={() => setShowAnalysis(!showAnalysis)}
-            >
-              {showAnalysis ? '− Hide Analysis' : '+ Show Analysis'}
-            </button>
-
-            {showAnalysis && (
-              <div className="analysis-panel">
-                <div className="analysis-row">
-                  <span className="analysis-label">Memorability</span>
-                  <div className="mini-meter">
-                    <div
-                      className="mini-fill"
-                      style={{
-                        width: `${analysis.memorabilityScore}%`,
-                        backgroundColor: getMelodyColor()
-                      }}
-                    />
-                  </div>
-                  <span className="analysis-value">{analysis.memorabilityScore}%</span>
-                </div>
-
-                <div className="analysis-row">
-                  <span className="analysis-label">Status</span>
-                  <span
-                    className="analysis-status"
-                    style={{ color: analysis.lifeInequality?.color }}
-                  >
-                    {analysis.lifeInequality?.userPhase}
-                  </span>
-                </div>
-
-                <div className="analysis-formula">
-                  <span>L<sup>n</sup>={analysis.lifeInequality?.growth}</span>
-                  <span className="vs">{analysis.lifeInequality?.phase === 'AUTOPOIETIC' ? '>' : analysis.lifeInequality?.phase === 'HOMEOSTATIC' ? '≈' : '<'}</span>
-                  <span>φ<sup>d</sup>={analysis.lifeInequality?.decay}</span>
-                </div>
-
-                {analysis.feedback && analysis.feedback.length > 0 && (
-                  <div className="analysis-tips">
-                    {analysis.feedback.slice(0, 2).map((fb, i) => (
-                      <p key={i} className={`tip tip-${fb.type}`}>{fb.message}</p>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        )}
       </div>
     </div>
   )
